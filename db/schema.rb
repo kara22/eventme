@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530131245) do
+ActiveRecord::Schema.define(version: 20170530152025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20170530131245) do
     t.datetime "updated_at",  null: false
     t.index ["event_id"], name: "index_attendees_on_event_id", using: :btree
     t.index ["user_id"], name: "index_attendees_on_user_id", using: :btree
+  end
+
+  create_table "decisions", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "decision_maker_id"
+    t.integer  "decision_receiver_id"
+    t.boolean  "like"
+    t.boolean  "pending"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["decision_maker_id"], name: "index_decisions_on_decision_maker_id", using: :btree
+    t.index ["decision_receiver_id"], name: "index_decisions_on_decision_receiver_id", using: :btree
+    t.index ["event_id"], name: "index_decisions_on_event_id", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -65,4 +78,5 @@ ActiveRecord::Schema.define(version: 20170530131245) do
 
   add_foreign_key "attendees", "events"
   add_foreign_key "attendees", "users"
+  add_foreign_key "decisions", "events"
 end

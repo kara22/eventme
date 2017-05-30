@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   has_many :attendees
+  has_many :decisions, class_name: 'Decision', foreign_key: 'decision_maker_id', dependent: :destroy
+  has_many :decisions, class_name: 'Decision', foreign_key: 'decision_receiver_id', dependent: :destroy
   has_many :events, through: :attendees do
     def going
       where("attendees.rsvp_status = ?", 'attending')
