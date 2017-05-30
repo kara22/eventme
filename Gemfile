@@ -19,6 +19,9 @@ gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 gem "pundit"
 
+# gems to handle pictures upload
+gem 'carrierwave', '~> 0.11.2'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'binding_of_caller'
