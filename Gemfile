@@ -20,7 +20,7 @@ gem 'omniauth-facebook'
 gem "pundit"
 
 # gems to handle pictures upload
-gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
 gem 'cloudinary'
 
 group :development, :test do

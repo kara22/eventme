@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
+  mount_uploaders :pictures, PictureUploader
+
   has_many :attendees, dependent: :destroy
   has_many :decisions_as_maker, class_name: 'Decision', foreign_key: 'decision_maker_id'
   has_many :decisions_as_receiver, class_name: 'Decision', foreign_key: 'decision_receiver_id'
