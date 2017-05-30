@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530162929) do
+ActiveRecord::Schema.define(version: 20170530171137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20170530162929) do
     t.float    "place_longitude"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer  "user_1"
+    t.integer  "user_2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_1"], name: "index_matches_on_user_1", using: :btree
+    t.index ["user_2"], name: "index_matches_on_user_2", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
