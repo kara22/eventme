@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530171137) do
+ActiveRecord::Schema.define(version: 20170530175146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20170530171137) do
     t.index ["user_2"], name: "index_matches_on_user_2", using: :btree
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "match_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_id"], name: "index_messages_on_match_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -89,4 +99,6 @@ ActiveRecord::Schema.define(version: 20170530171137) do
   add_foreign_key "attendees", "events"
   add_foreign_key "attendees", "users"
   add_foreign_key "decisions", "events"
+  add_foreign_key "messages", "matches"
+  add_foreign_key "messages", "users"
 end
