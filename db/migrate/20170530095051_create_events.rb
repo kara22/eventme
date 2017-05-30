@@ -10,7 +10,6 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :place_name
       t.float :place_latitude
       t.float :place_longitude
-      t.string :rsvp_status
 
       t.timestamps
     end
