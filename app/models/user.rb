@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :attendees
-  has_many :decisions, class_name: 'Decision', foreign_key: 'decision_maker_id', dependent: :destroy
-  has_many :decisions, class_name: 'Decision', foreign_key: 'decision_receiver_id', dependent: :destroy
+  has_many :attendees, dependent: :destroy
+  has_many :decisions_as_maker, class_name: 'Decision', foreign_key: 'decision_maker_id'
+  has_many :decisions_as_receiver, class_name: 'Decision', foreign_key: 'decision_receiver_id'
   has_many :events, through: :attendees do
     def going
       where("attendees.rsvp_status = ?", 'attending')
@@ -19,6 +19,7 @@ class User < ApplicationRecord
     user_params.merge! auth.info.slice(:email, :first_name, :last_name)
     user_params[:facebook_picture_url] = auth.info.image
     user_params[:token] = auth.credentials.token
+    user_params[:gender] = auth.extra.raw_info.gender
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
     user_params = user_params.to_h
     user = User.where(provider: auth.provider, uid: auth.uid).first
