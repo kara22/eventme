@@ -98,6 +98,8 @@ class User < ApplicationRecord
               attending_count: event.attending_count,
               start_time: event.start_time,
               end_time: event.end_time,
+
+
               cover: event.cover ? event.cover.source: nil,
               place_name: event.place ?  event.place.name : nil,
               place_latitude: if event.place
