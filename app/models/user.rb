@@ -47,19 +47,18 @@ class User < ApplicationRecord
    if auth["extra"]["raw_info"]["events"]
       auth["extra"]["raw_info"]["events"]["data"].each do |event|
         find_event = Event.find_by(fb_event_id: event.id)
-
         if event.type == "public"
           if event.rsvp_status == "attending"
             if find_event == nil
               new_event = Event.create(fb_event_id: event.id,
-                      name: event.name,
-                      attending_count: event.attending_count,
-                      start_time: event.start_time,
-                      end_time: event.end_time,
-                      cover: event.cover ? event.cover.source : nil,
-                      place_name: event.place ?  event.place.name : nil,
-                      place_latitude: if event.place
-                        event.place.location ? event.place.location.latitude : nil
+                  name: event.name,
+                  attending_count: event.attending_count,
+                  start_time: event.start_time,
+                  end_time: event.end_time,
+                  cover: event.cover ? event.cover.source : "http://placehold.it/400x150",
+                  place_name: event.place ?  event.place.name : nil,
+                  place_latitude: if event.place
+                    event.place.location ? event.place.location.latitude : nil
                       else
                         nil
                       end,
@@ -76,7 +75,7 @@ class User < ApplicationRecord
                 attending_count: event.attending_count,
                 start_time: event.start_time,
                 end_time: event.end_time,
-                cover: event.cover ? event.cover.source: nil,
+                cover: event.cover ? event.cover.source: "http://placehold.it/400x150",
                 place_name: event.place ?  event.place.name : nil,
                 place_latitude: if event.place
                                 event.place.location ? event.place.location.latitude : nil
@@ -104,7 +103,9 @@ class User < ApplicationRecord
               attending_count: event.attending_count,
               start_time: event.start_time,
               end_time: event.end_time,
-              cover: event.cover ? event.cover.source: nil,
+
+
+              cover: event.cover ? event.cover.source: "http://placehold.it/400x150",
               place_name: event.place ?  event.place.name : nil,
               place_latitude: if event.place
                                 event.place.location ? event.place.location.latitude : nil
