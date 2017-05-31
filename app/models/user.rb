@@ -35,57 +35,57 @@ class User < ApplicationRecord
       user.save
     end
     # get all events from facebook
-   if auth["extra"]["raw_info"]["events"] != nil
-    auth["extra"]["raw_info"]["events"]["data"].each do |event|
-    find_event = Event.find_by(fb_event_id: event.id)
-      if event.rsvp_status == "attending"
-        if find_event == nil
-          new_event = Event.create(fb_event_id: event.id,
-                  name: event.name,
-                  attending_count: event.attending_count,
-                  start_time: event.start_time,
-                  end_time: event.end_time,
-                  cover: event.cover.source,
-                  place_name: event.place ?  event.place.name : nil,
-                  place_latitude: event.place ? event.place.location.latitude : nil,
-                  place_longitude: event.place ? event.place.location.longitude : nil
-                  )
-          Attendee.create(user: user, event: new_event, rsvp_status: 'attending')
-        else
-          find_event.update(
-            name: event.name,
-            attending_count: event.attending_count,
-            start_time: event.start_time,
-            end_time: event.end_time,
-            cover: event.cover.source,
-            place_name: event.place ?  event.place.name : nil,
-            place_latitude: event.place ? event.place.location.latitude : nil,
-            place_longitude: event.place ? event.place.location.longitude : nil
-            )
-          # if the event already exists, we just create an attendee for the new user
-          if !(find_event.attendees.map(&:user).include?(user))
-            Attendee.create(user: user, event: find_event, rsvp_status: 'attending')
+   if auth["extra"]["raw_info"]["events"]
+      auth["extra"]["raw_info"]["events"]["data"].each do |event|
+        find_event = Event.find_by(fb_event_id: event.id)
+        if event.rsvp_status == "attending"
+          if find_event == nil
+            new_event = Event.create(fb_event_id: event.id,
+                    name: event.name,
+                    attending_count: event.attending_count,
+                    start_time: event.start_time,
+                    end_time: event.end_time,
+                    cover: event.cover.source,
+                    place_name: event.place ?  event.place.name : nil,
+                    place_latitude: event.place ? event.place.location.latitude : nil,
+                    place_longitude: event.place ? event.place.location.longitude : nil
+                    )
+            Attendee.create(user: user, event: new_event, rsvp_status: 'attending')
+          else
+            find_event.update(
+              name: event.name,
+              attending_count: event.attending_count,
+              start_time: event.start_time,
+              end_time: event.end_time,
+              cover: event.cover.source,
+              place_name: event.place ?  event.place.name : nil,
+              place_latitude: event.place ? event.place.location.latitude : nil,
+              place_longitude: event.place ? event.place.location.longitude : nil
+              )
+            # if the event already exists, we just create an attendee for the new user
+            if !(find_event.attendees.map(&:user).include?(user))
+              Attendee.create(user: user, event: find_event, rsvp_status: 'attending')
+            end
           end
-        end
-      else
-        # if the event exists in our database and the user rsvp_status is not 'attending'
-        # we just update the event and the user attendee with the new data
-        if find_event
-          find_event.update(
-            name: event.name,
-            attending_count: event.attending_count,
-            start_time: event.start_time,
-            end_time: event.end_time,
-            cover: event.cover.source,
-            place_name: event.place ?  event.place.name : nil,
-            place_latitude: event.place ? event.place.location.latitude : nil,
-            place_longitude: event.place ? event.place.location.longitude : nil
-            )
-          find_event.attendees.where(user: user).update(rsvp_status: event.rsvp_status)
+        else
+          # if the event exists in our database and the user rsvp_status is not 'attending'
+          # we just update the event and the user attendee with the new data
+          if find_event
+            find_event.update(
+              name: event.name,
+              attending_count: event.attending_count,
+              start_time: event.start_time,
+              end_time: event.end_time,
+              cover: event.cover.source,
+              place_name: event.place ?  event.place.name : nil,
+              place_latitude: event.place ? event.place.location.latitude : nil,
+              place_longitude: event.place ? event.place.location.longitude : nil
+              )
+            find_event.attendees.where(user: user).update(rsvp_status: event.rsvp_status)
+          end
         end
       end
     end
-  end
 
     return user
   end
