@@ -1,22 +1,19 @@
 class UserPolicy < ApplicationPolicy
-
-
-  attr_reader :current_user, :model
-
-  def initialize(current_user, model)
-    @current_user = current_user
-    @user = model
-  end
-
+  # scope <=> User
+  # record <=> user instance
+  # user <=> current_user
   class Scope < Scope
     def resolve
       scope
     end
   end
 
+  def show?
+    true
+  end
 
   def edit?
-    @current_user == @user
+    user == record
   end
 
 end
