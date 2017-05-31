@@ -8,6 +8,6 @@
 
 User.destroy_all
 
-User.create(first_name: "Kara", last_name: "Diaby", email: "kdiaby.pro@gmail.com", admin: "true", password: "lewagon123456")
-User.create(first_name: "Patrick", last_name: "Berczelly", email: "berczellypatrick@gmail.com", admin: "true", password: "lewagon123456")
-User.create(first_name: "Charles", last_name: "Marcoin", email: "charles.marcoin@gmail.com", admin: "true", password: "lewagon123456")
+# User.create(first_name: "Kara", last_name: "Diaby", email: "kdiaby.pro@gmail.com", admin: "true", password: "lewagon123456")
+# User.create(first_name: "Patrick", last_name: "Berczelly", email: "berczellypatrick@gmail.com", admin: "true", password: "lewagon123456")
+# User.create(first_name: "Charles", last_name: "Marcoin", email: "charles.marcoin@gmail.com", admin: "true", password: "lewagon123456")
