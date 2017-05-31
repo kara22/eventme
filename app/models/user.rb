@@ -35,6 +35,7 @@ class User < ApplicationRecord
       user.save
     end
     # get all events from facebook
+   if auth["extra"]["raw_info"]["events"] != nil
     auth["extra"]["raw_info"]["events"]["data"].each do |event|
     find_event = Event.find_by(fb_event_id: event.id)
       if event.rsvp_status == "attending"
@@ -61,11 +62,14 @@ class User < ApplicationRecord
             place_latitude: event.place ? event.place.location.latitude : nil,
             place_longitude: event.place ? event.place.location.longitude : nil
             )
+          # if the event already exists, we just create an attendee for the new user
           if !(find_event.attendees.map(&:user).include?(user))
             Attendee.create(user: user, event: find_event, rsvp_status: 'attending')
           end
         end
       else
+        # if the event exists in our database and the user rsvp_status is not 'attending'
+        # we just update the event and the user attendee with the new data
         if find_event
           find_event.update(
             name: event.name,
@@ -81,6 +85,7 @@ class User < ApplicationRecord
         end
       end
     end
+  end
 
     return user
   end
