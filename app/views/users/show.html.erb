@@ -1,1 +1,51 @@
 <p>Show du user <%= current_user.first_name %> <%= current_user.last_name %></p>
+
+<%= link_to user_pictures_path(current_user, :picture_field_id => "picture1") do %>
+  <% if current_user.picture1 == nil %>
+      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+    <% else %>
+      <%= cl_image_tag @user.picture1, height: 150, width: 150, crop: :fill %>
+  <% end %>
+<% end %>
+
+<%= link_to user_pictures_path(current_user, :picture_field_id => "picture2") do %>
+  <% if current_user.picture2 == nil %>
+      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+    <% else %>
+      <%= cl_image_tag @user.picture2, height: 150, width: 150, crop: :fill %>
+  <% end %>
+<% end %>
+
+<%= link_to user_pictures_path(current_user, :picture_field_id => "picture3") do %>
+  <% if current_user.picture3 == nil %>
+      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+    <% else %>
+      <%= cl_image_tag @user.picture3, height: 150, width: 150, crop: :fill %>
+  <% end %>
+<% end %>
+
+<%= link_to user_pictures_path(current_user, :picture_field_id => "picture4") do %>
+  <% if current_user.picture4 == nil %>
+      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+    <% else %>
+      <%= cl_image_tag @user.picture4, height: 150, width: 150, crop: :fill %>
+  <% end %>
+<% end %>
+
+<%= link_to user_pictures_path(current_user, :picture_field_id => "picture5") do %>
+  <% if current_user.picture5 == nil %>
+      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+    <% else %>
+      <%= cl_image_tag @user.picture5, height: 150, width: 150, crop: :fill %>
+  <% end %>
+<% end %>
+
+<%= link_to user_pictures_path(current_user, :picture_field_id => "picture6") do %>
+  <% if current_user.picture6 == nil %>
+      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+    <% else %>
+      <%= cl_image_tag @user.picture6, height: 150, width: 150, crop: :fill %>
+  <% end %>
+<% end %>
+
+<!-- Dans cette page, mettre un if pour chaque picture. Si la picture existe alors on l'affiche, sinon on met un placeholder -->

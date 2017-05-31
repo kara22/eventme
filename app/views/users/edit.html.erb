@@ -18,14 +18,8 @@
 
 <% end %>
 
-<h2>Photos Facebook du user</h2>
 
-<% user_graph_api = Koala::Facebook::API.new(current_user["token"]) %>
 
-<% data = user_graph_api.get_object("me?fields=photos{images}")["photos"]["data"] %>
-<% data.each do |image| %>
 
-<input type="checkbox" id='<%= image["id"] %>' />
-<label for="<%= image["id"] %>"><%= image_tag("#{image["images"].first["source"]}", :alt => "profile pic", height: "150") %></label>
 
-<% end %>
+
