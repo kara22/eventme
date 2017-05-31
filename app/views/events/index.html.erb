@@ -2,7 +2,7 @@
   <div class="row">
     <% current_user.events.going.each do |event| %>
       <div class="col-xs-12">
-        <div class="card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= image_path event.cover %>');">
+        <div class="card" style="background-image: linear-gradient(to right,rgba(222, 98, 98, 0.4), rgba(255, 184, 140, 0.4)), url('<%= image_path event.cover %>');">
           <div class="card-title"><%= event.name %></div>
           <div class="card-subtitle"><%= DateTime.parse(event.start_time).strftime("%d/%m/%Y")%></div>
           <div class="card-content">
