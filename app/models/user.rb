@@ -43,15 +43,15 @@ class User < ApplicationRecord
         if event.rsvp_status == "attending"
           if find_event == nil
             new_event = Event.create(fb_event_id: event.id,
-                    name: event.name,
-                    attending_count: event.attending_count,
-                    start_time: event.start_time,
-                    end_time: event.end_time,
-                    cover: event.cover.source,
-                    place_name: event.place ?  event.place.name : nil,
-                    place_latitude: event.place ? event.place.location.latitude : nil,
-                    place_longitude: event.place ? event.place.location.longitude : nil
-                    )
+              name: event.name,
+              attending_count: event.attending_count,
+              start_time: event.start_time,
+              end_time: event.end_time,
+              cover: event.cover,
+              place_name: event.place ?  event.place.name : nil,
+              place_latitude: event.place ? event.place.location.latitude : nil,
+              place_longitude: event.place ? event.place.location.longitude : nil
+              )
             Attendee.create(user: user, event: new_event, rsvp_status: 'attending')
           else
             find_event.update(
@@ -59,7 +59,7 @@ class User < ApplicationRecord
               attending_count: event.attending_count,
               start_time: event.start_time,
               end_time: event.end_time,
-              cover: event.cover.source,
+              cover: event.cover,
               place_name: event.place ?  event.place.name : nil,
               place_latitude: event.place ? event.place.location.latitude : nil,
               place_longitude: event.place ? event.place.location.longitude : nil
@@ -78,7 +78,7 @@ class User < ApplicationRecord
               attending_count: event.attending_count,
               start_time: event.start_time,
               end_time: event.end_time,
-              cover: event.cover.source,
+              cover: event.cover,
               place_name: event.place ?  event.place.name : nil,
               place_latitude: event.place ? event.place.location.latitude : nil,
               place_longitude: event.place ? event.place.location.longitude : nil
