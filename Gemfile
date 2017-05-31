@@ -19,6 +19,14 @@ gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 gem "pundit"
 
+# gems to handle pictures upload
+gem 'carrierwave', github:'carrierwaveuploader/carrierwave'
+gem 'cloudinary'
+
+# gems to add an administration interface
+
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '~> 1.2'
 
 group :development, :test do
   gem 'binding_of_caller'
