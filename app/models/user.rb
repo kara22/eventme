@@ -41,6 +41,7 @@ class User < ApplicationRecord
    if auth["extra"]["raw_info"]["events"]
       auth["extra"]["raw_info"]["events"]["data"].each do |event|
         find_event = Event.find_by(fb_event_id: event.id)
+
         if event.type == "public"
           if event.rsvp_status == "attending"
             if find_event == nil
@@ -49,10 +50,18 @@ class User < ApplicationRecord
                       attending_count: event.attending_count,
                       start_time: event.start_time,
                       end_time: event.end_time,
-                      cover: event.cover.source,
+                      cover: event.cover ? event.cover.source : nil,
                       place_name: event.place ?  event.place.name : nil,
-                      place_latitude: event.place.location ? event.place.location.latitude : nil,
-                      place_longitude: event.place.location ? event.place.location.longitude : nil
+                      place_latitude: if event.place
+                        event.place.location ? event.place.location.latitude : nil
+                      else
+                        nil
+                      end,
+                place_longitude: if event.place
+                      event.place.location ? event.place.location.longitude : nil
+                      else
+                        nil
+                      end
                       )
               Attendee.create(user: user, event: new_event, rsvp_status: 'attending')
             else
@@ -61,10 +70,18 @@ class User < ApplicationRecord
                 attending_count: event.attending_count,
                 start_time: event.start_time,
                 end_time: event.end_time,
-                cover: event.cover.source,
+                cover: event.cover ? event.cover.source: nil,
                 place_name: event.place ?  event.place.name : nil,
-                place_latitude: event.place.location ? event.place.location.latitude : nil,
-                place_longitude: event.place.location ? event.place.location.longitude : nil
+                place_latitude: if event.place
+                                event.place.location ? event.place.location.latitude : nil
+                                else
+                                nil
+                                end,
+                place_longitude: if event.place
+                                event.place.location ? event.place.location.longitude : nil
+                                else
+                                nil
+                                end
                 )
               if !(find_event.attendees.map(&:user).include?(user))
                 Attendee.create(user: user, event: find_event, rsvp_status: 'attending')
@@ -81,10 +98,18 @@ class User < ApplicationRecord
               attending_count: event.attending_count,
               start_time: event.start_time,
               end_time: event.end_time,
-              cover: event.cover.source,
+              cover: event.cover ? event.cover.source: nil,
               place_name: event.place ?  event.place.name : nil,
-              place_latitude: event.place ? event.place.location.latitude : nil,
-              place_longitude: event.place ? event.place.location.longitude : nil
+              place_latitude: if event.place
+                                event.place.location ? event.place.location.latitude : nil
+                                else
+                                nil
+                                end,
+              place_longitude: if event.place
+                                event.place.location ? event.place.location.longitude : nil
+                                else
+                                nil
+                                end
               )
             find_event.attendees.where(user: user).update(rsvp_status: event.rsvp_status)
           end
