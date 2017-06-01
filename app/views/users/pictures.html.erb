@@ -1,0 +1,34 @@
+<div class="container">
+
+<div class="text-center">
+
+<h3>Choisissez la photo facebook à uploader </h3>
+
+<% user_graph_api = Koala::Facebook::API.new(current_user["token"]) %>
+
+<% data = user_graph_api.get_object("me?fields=photos{images}")["photos"]["data"] %>
+
+<%= form_tag user_update_picture_path(current_user), method: 'patch' , class: "fb-pics-form" do %>
+
+  <% data.each do |image| %>
+
+    <input type="radio" name="fb_radio" id='<%= image["id"] %>' value='<%= image["images"].first["source"] %>' class="fb-pics-radio" />
+    <label for="<%= image["id"] %>"><%= image_tag("#{image["images"].first["source"]}", :alt => "profile pic", height: "150", style: "box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)") %></label>
+
+  <% end %>
+
+  <input type="hidden" name="picture_field_to_update" value="<%= params[:picture_field_id] %>">
+
+<% end %>
+
+</div>
+
+</div>
+
+
+<!--
+Exemple pour upload la photo avec CarrierWave + Cloudinary
+url = "http://static.giantbomb.com/uploads/original/9/99864/2419866-nes_console_set.png"
+product = Product.new(name: 'NES')
+product.remote_photo_url = url
+product.save -->

@@ -5,6 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   mount_uploaders :pictures, PictureUploader
+  mount_uploader :picture1, PictureUploader
+  mount_uploader :picture2, PictureUploader
+  mount_uploader :picture3, PictureUploader
+  mount_uploader :picture4, PictureUploader
+  mount_uploader :picture5, PictureUploader
+  mount_uploader :picture6, PictureUploader
 
   has_many :attendees, dependent: :destroy
   has_many :decisions_as_maker, class_name: 'Decision', foreign_key: 'decision_maker_id'

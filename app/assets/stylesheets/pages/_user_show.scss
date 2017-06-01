@@ -1,0 +1,30 @@
+.picture-item-big {
+  position: relative;
+  margin-top: 30px;
+
+}
+
+.add-picture-circle-big {
+  width: 100%;
+  height: 100%;
+  background: #F5515F;
+  display: inline-block;
+  border: 1px solid white;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 7px;
+  width: 3em;
+  height: 3em;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.add-picture-big {
+
+  position: absolute;
+  right: 95px;
+  bottom: -15px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+}

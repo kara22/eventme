@@ -1,2 +1,13 @@
-<p>Politique de confidentialité</p>
-<%= link_to 'events', events_path %>
+<div class="wrapper-home">
+  <div class="home-page">
+    <div class="home-content">
+      <%= image_tag "logo.png", class: "home-logo" %>
+      <p>Meet people through events</p>
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+           <p><%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), {class: "fb-btn"} %></p>
+          <% end -%>
+        <% end -%>
+    </div>
+  </div>
+</div>

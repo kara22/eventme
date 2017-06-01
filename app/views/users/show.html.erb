@@ -1,1 +1,27 @@
-<p>Show du user <%= current_user.first_name %> <%= current_user.last_name %></p>
+<div class="container">
+
+  <div class="text-center">
+
+<div class="picture-item-big">
+    <%= cl_image_tag @user.picture1, height: 150, width: 150, crop: :fill, class: "img-circle", style: "box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)" %>
+
+    <%= link_to user_eventme_pictures_set_path(current_user) do %>
+        <span class="add-picture-big">
+          <span class="add-picture-circle-big">
+            <i class="fa fa fa-pencil" style="color: white; font-size: 30px"></i>
+          </span>
+        </span>
+    <% end %>
+    </div>
+
+    <hr>
+
+    <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
+
+    <hr>
+
+    <%= link_to "log out", destroy_user_session_path(current_user), method: :delete %>
+
+  </div>
+
+</div>
