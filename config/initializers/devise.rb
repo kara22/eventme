@@ -278,7 +278,7 @@ Devise.setup do |config|
   config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
     scope: 'email, user_events, user_friends, user_photos',
     info_fields: 'email, first_name, last_name, gender, events{id,attending_count,start_time,end_time,cover,place,name,rsvp_status, type}, friends, photos{images}',
-    image_size: 'square',  # 50x50, guaranteed ratio
+    image_size: {width: 500, height: 500},
     secure_image_url: true
   end
 end

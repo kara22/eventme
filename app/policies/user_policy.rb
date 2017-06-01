@@ -24,6 +24,10 @@ class UserPolicy < ApplicationPolicy
     user == record
   end
 
+  def search?
+    user == record
+  end
+  
   def update?
     user == record
   end
