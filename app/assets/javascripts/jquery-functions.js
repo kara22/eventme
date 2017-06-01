@@ -14,8 +14,6 @@ $(document).ready(function(){
     } else {
       $(".btn-red-rounded").addClass("hidden");
     }
-    console.log(data_events);
-
     $("#search-events").val(data_events);
   });
 });

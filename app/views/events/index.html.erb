@@ -3,7 +3,8 @@
     <% current_user.events.going.each do |event| %>
       <% if DateTime.parse(event.start_time) > Time.now %>
         <div class="col-xs-12">
-          <div class="card" style="background-image: linear-gradient(to right,rgba(222, 98, 98, 0.4), rgba(255, 184, 140, 0.4)), url('<%= image_path event.cover %>');">
+          <div class="card" id="<%= event.id %>" style="background-image: linear-gradient(to right,rgba(222, 98, 98, 0.4), rgba(255, 184, 140, 0.4)), url('<%= image_path event.cover %>');">
+          <div class="white-wrapper hidden"></div>
           </div>
             <div class="card-bottom">
               <div class="card-bottom-title"><%= event.name %></div>
@@ -14,7 +15,6 @@
                   <li><%= event.attending_count %></li>
                 </ul>
               </div>
-              <div class="white-wrapper hidden"></div>
             </div>
         </div>
       <% end %>
