@@ -1,0 +1,117 @@
+
+<div class="text-center">
+<p>Modifiez vos photos</p>
+</div>
+
+<div class="container">
+  <div class="picture-row">
+    <div class="picture-column">
+      <div class="picture-item">
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture1") do %>
+          <% if current_user.picture1 == nil %>
+            <%= image_tag("http://via.placeholder.com/200x200", size: "200x200", alt: "Profile picture") %>
+          <% else %>
+            <%= cl_image_tag @user.picture1, height: 200, width: 200, crop: :fill %>
+          <% end %>
+               <span class="add-picture">
+            <span class="add-picture-circle">
+              <i class="fa fa fa-pencil" style="color: white"></i>
+            </span>
+          </span>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="picture-column">
+      <div class="picture-item">
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture2") do %>
+          <% if current_user.picture2 == nil %>
+            <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+          <% else %>
+            <%= cl_image_tag @user.picture2, height: 90, width: 90, crop: :fill %>
+          <% end %>
+               <span class="add-picture">
+            <span class="add-picture-circle">
+              <i class="fa fa fa-pencil" style="color: white"></i>
+            </span>
+          </span>
+        <% end %>
+      </div>
+
+      <div class="picture-item">
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture3") do %>
+          <% if current_user.picture3 == nil %>
+            <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+          <% else %>
+            <%= cl_image_tag @user.picture3, height: 90, width: 90, crop: :fill %>
+          <% end %>
+               <span class="add-picture">
+            <span class="add-picture-circle">
+              <i class="fa fa fa-pencil" style="color: white"></i>
+            </span>
+          </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="picture-row" style="margin-top: 20px">
+    <div class="picture-column">
+      <div class="picture-item">
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture4") do %>
+          <% if current_user.picture4 == nil %>
+             <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+          <% else %>
+            <%= cl_image_tag @user.picture4, height: 90, width: 90, crop: :fill %>
+          <% end %>
+          <span class="add-picture">
+            <span class="add-picture-circle">
+              <i class="fa fa fa-pencil" style="color: white"></i>
+            </span>
+          </span>
+        <% end %>
+
+      </div>
+    </div>
+    <div class="picture-column">
+      <div class="picture-item">
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture5") do %>
+          <% if current_user.picture5 == nil %>
+             <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+          <% else %>
+            <%= cl_image_tag @user.picture5, height: 90, width: 90, crop: :fill %>
+          <% end %>
+               <span class="add-picture">
+            <span class="add-picture-circle">
+              <i class="fa fa fa-pencil" style="color: white"></i>
+            </span>
+          </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="picture-column">
+      <div class="picture-item">
+
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture6") do %>
+          <% if current_user.picture6 == nil %>
+            <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+          <% else %>
+            <%= cl_image_tag @user.picture6, height: 90, width: 90, crop: :fill %>
+          <% end %>
+               <span class="add-picture">
+            <span class="add-picture-circle">
+              <i class="fa fa fa-pencil" style="color: white"></i>
+            </span>
+          </span>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center" style="margin-top: 20px">
+  <p><%= link_to "Retourner à la page profile", user_path(current_user) %></p>
+</div>
+
+

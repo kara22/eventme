@@ -1,3 +1,7 @@
+<p>Profil du user avec sa profile pic principale et la description et son event préféré</p>
+
+<%= link_to "Editer mes photos", user_eventme_pictures_set_path(current_user) %>
+
 <p>Show du user <%= current_user.first_name %> <%= current_user.last_name %></p>
 
 <%= link_to user_pictures_path(current_user, :picture_field_id => "picture1") do %>
@@ -49,5 +53,3 @@
 <% end %>
 
  <%= link_to "log out", destroy_user_session_path(current_user), method: :delete %>
-
-<!-- Dans cette page, mettre un if pour chaque picture. Si la picture existe alors on l'affiche, sinon on met un placeholder -->
