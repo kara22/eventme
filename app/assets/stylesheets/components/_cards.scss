@@ -28,6 +28,8 @@
   position:absolute;
   bottom:10px;
   left:40px;
+  z-index:3000;
+  cursor:pointer;
 
 }
 
@@ -36,6 +38,8 @@
   position:absolute;
   bottom:10px;
   right:40px;
+  z-index:3000;
+  cursor:pointer;
 }
 
 #heart{
@@ -48,6 +52,7 @@
     height: 50px;
     margin: auto;
     padding:5px;
+  border-radius:0px 0px 4px 4px;
 }
 
 .attendee-name {

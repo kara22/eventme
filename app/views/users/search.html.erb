@@ -12,7 +12,7 @@
             <%= image_tag 'heart.png', width:40 %>
           </div>
         </div>
-        <div class="attendee-info radius">
+        <div class="attendee-info">
         <% current_user.events.each do |event| %>
             <% if attendee.events.include?(event) && DateTime.parse(event.end_time) < Time.now %>
               <p class="attendee-common-events"><%= event.name %></p>
