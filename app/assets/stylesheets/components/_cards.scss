@@ -4,9 +4,9 @@
   background-size: cover !important;
   color: white;
   position: relative;
-  margin-bottom: 10px;
-  border-radius:4px;
+  border-radius: 4px 4px 0 0;
 }
+
 .card-title {
   position: absolute;
   left: 10px;
@@ -95,6 +95,7 @@
 .card-description p {
   font-size: 13px;
   }
+
 .card-link {
   position: absolute;
   top: 0;
@@ -107,4 +108,38 @@
 }
 .card-link:hover{
   opacity: 0.1;
+}
+
+.card-bottom {
+  background-color: #F5515F;
+  background-size: cover !important;
+  height: 75px;
+  margin: auto;
+  padding:5px;
+  margin-bottom: 15px;
+  position: relative;
+  border-radius: 0 0 4px 4px;
+}
+
+.card-bottom-title {
+  color: white;
+  position: absolute;
+  top: 5px;
+  font-weight: bold;
+}
+
+.card-bottom-date {
+  color: white;
+  bottom: 7px;
+  font-weight: bold;
+  position: absolute;
+}
+
+.card-attendee  {
+  position: absolute;
+  color: white;
+  right: 5px;
+  bottom: 1px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
