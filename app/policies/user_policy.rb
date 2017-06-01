@@ -12,6 +12,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def eventme_pictures_set?
+    user == record
+  end
+
   def pictures?
     user == record
   end

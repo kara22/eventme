@@ -9,30 +9,38 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def pictures
-  # On récupère le field que le user shouaite changer (picture1, picture2, ...)
-  @picture_to_change = params[:picture_field_id]
-  # On récupère le user qui a fait la demande de changement
-  @user = current_user
-  # On l'autorise à voir sa liste de photos Facebook pour qu'il puisse choisir
-  authorize @user
-end
-
-def update
-  authorize @user
-  if @user.update(user_params)
-    redirect_to root_path
-  else
-    render :edit
+  def eventme_pictures_set
+    # On arrive ici depuis la show basique du user
+    # Cette méthode conduit à la vue qui présente au user toutes ses photos de profil EventMe
+    @user = current_user
+    authorize @user
   end
-end
 
-def update_picture
+  def pictures
+    # On arrive dans cette vue depuis la vue eventme_pictures_set.html.erb
+    # On récupère le field de la photo EventMe que le user shouaite changer (picture1, picture2, ...)
+    @picture_to_change = params[:picture_field_id]
+    # On récupère le user qui a fait la demande de changement
+    @user = current_user
+    # On l'autorise à voir sa liste de photos Facebook pour qu'il puisse choisir
+    authorize @user
+  end
+
+  def update
+    authorize @user
+    if @user.update(user_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
+  def update_picture
     # On rentre dans update_picture depuis la vue pictures d'un user
-    # On commence par récupérer le user (pas vraiment utile car on pourrait avoir )
+    # On commence par récupérer le user (pas vraiment utile car on pourrait utiliser directement current_user )
     @user = User.find(params[:user_id])
     # ON autorise le user à faire l'update
-       authorize @user
+    authorize @user
     # On récupère l'URL de la photo Facebook sélectionnée par le user (envoyée par le formulaire de pictures)
     @picture_source = params[:fb_radio]
     @picture_field_to_update = params[:picture_field_to_update]
@@ -59,7 +67,7 @@ def update_picture
       @user.save
     end
     # Une fois l'update fait, on redirige vers la show du user (indifférement current_user ou user_id récup dans l'URL)
-    redirect_to user_path(@user)
+    redirect_to user_eventme_pictures_set_path(@user)
     # récupère la source (URL) de la photo Facebook
     # réupcère l'id du field où elle doit être placée
     # met à jour le user avec ces infos
