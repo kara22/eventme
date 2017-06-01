@@ -9,7 +9,13 @@ $(document).ready(function(){
     }
     $(this).find(".white-wrapper").toggleClass("hidden");
     var data_events = JSON.stringify(events);
+    if (data_events.length > 10) {
+      $(".btn-red-rounded").removeClass("hidden");
+    } else {
+      $(".btn-red-rounded").addClass("hidden");
+    }
     console.log(data_events);
+
     $("#search-events").val(data_events);
   });
 });
