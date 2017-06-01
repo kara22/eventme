@@ -48,4 +48,6 @@
   <% end %>
 <% end %>
 
+ <%= link_to "log out", destroy_user_session_path(current_user), method: :delete %>
+
 <!-- Dans cette page, mettre un if pour chaque picture. Si la picture existe alors on l'affiche, sinon on met un placeholder -->
