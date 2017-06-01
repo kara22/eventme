@@ -37,8 +37,10 @@ class User < ApplicationRecord
     user ||= User.where(email: auth.info.email).first # User did a regular sign up in the past.
     if user
       user.update(user_params)
+      user.remote_picture1_url = auth.info.image
     else
       user = User.new(user_params)
+      user.remote_picture1_url = auth.info.image
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.save
     end
