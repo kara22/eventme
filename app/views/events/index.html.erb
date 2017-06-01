@@ -15,8 +15,16 @@
                 </ul>
               </div>
             </div>
+
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
+
+
+<%= form_tag search_path, method: 'get' , class: "fb-pics-form" do %>
+  <input type="hidden" name="search-user-events" id="search-events">
+  <%= submit_tag "Meet",  class: "btn-red-rounded"%>
+<% end %>
+

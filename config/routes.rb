@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'pictures' => 'users#pictures'
       patch 'update_picture' => 'users#update_picture'
     end
-  resources :events, only: [:index, :show]
+  get "search" => "users#search"
+  resources :events, only: [:index]
   root to: "pages#home"
 end
