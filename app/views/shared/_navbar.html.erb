@@ -1,20 +1,19 @@
-<div class="navbar-eventme navbar-eventme-fixed text-center">
-  <div class="navbar-start">
-    <% if user_signed_in? %>
-    <%= link_to user_path(current_user) do %>
-      <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-    <% end %>
-    <%= link_to events_path(current_user) do %>
-      <i class="fa fa-calendar-o" aria-hidden="true"></i>
-    <% end %>
-  </div>
+<% if user_signed_in? %>
+  <div class="navbar-eventme navbar-eventme-fixed text-center">
+    <div class="navbar-start">
+      <%= link_to user_path(current_user) do %>
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to events_path(current_user) do %>
+        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+      <% end %>
+    </div>
 
-  <%= image_tag "logo.png", class: "navbar-logo" %>
-  <div class="navbar-end">
-    <i class="fa fa-comments" aria-hidden="true"></i>
-  </div>
+    <%= image_tag "logo.png", class: "navbar-logo" %>
 
-  <% else %>
-  <%= link_to "Log in", new_user_session_path %>
-  <% end %>
-</div>
+    <div class="navbar-end">
+      <i class="fa fa-comments" aria-hidden="true"></i>
+    </div>
+  </div>
+<% end %>
+
