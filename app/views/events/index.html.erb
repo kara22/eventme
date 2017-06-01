@@ -1,24 +1,30 @@
 <div class="container">
   <div class="row">
     <% current_user.events.going.each do |event| %>
-      <div class="col-xs-12">
-        <div class="card" id='<%= event.id  %>' style="background: linear-gradient(to right,rgba(222, 98, 98, 0.4), rgba(255, 184, 140, 0.4)), url('<%= image_path event.cover %>');">
-          <div class="card-title"><%= event.name %></div>
-          <div class="card-subtitle"><%= DateTime.parse(event.start_time).strftime("%d/%m/%Y")%></div>
-          <div class="card-content">
-            <ul class="list-inline">
-              <li><%= image_tag 'participants.png' %></li>
-              <li><%= event.attending_count %></li>
-            </ul>
+      <% if DateTime.parse(event.start_time) > Time.now %>
+        <div class="col-xs-12">
+          <div class="card" style="background-image: linear-gradient(to right,rgba(222, 98, 98, 0.4), rgba(255, 184, 140, 0.4)), url('<%= image_path event.cover %>');">
           </div>
-          <div class="white-wrapper hidden"></div>
+            <div class="card-bottom">
+              <div class="card-bottom-title"><%= event.name %></div>
+              <div class="card-bottom-date">D - <%= (DateTime.parse(event.start_time) - Date.today).to_i %></div>
+              <div class="card-attendee">
+                 <ul class="list-inline">
+                  <li><%= image_tag 'participants.png' %></li>
+                  <li><%= event.attending_count %></li>
+                </ul>
+              </div>
+            </div>
+
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
+
 
 <%= form_tag search_path, method: 'get' , class: "fb-pics-form" do %>
   <input type="hidden" name="search-user-events" id="search-events">
   <%= submit_tag "Meet",  class: "btn-red-rounded"%>
 <% end %>
+
