@@ -2,3 +2,35 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+.fb-btn {
+  border: 3px solid white;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.fb-btn:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #F5515F;
+}
+
+
+.home-logo {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.home-content p {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 70px;
+}
+
