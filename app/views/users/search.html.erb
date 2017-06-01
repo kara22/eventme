@@ -1,0 +1,51 @@
+  <div class="container">
+    <% @attendees.each do |attendee|%>
+      <% if attendee != current_user %>
+      <div class="attendee">
+        <div class="attendee-photo">
+          <p class="attendee-name"><%= attendee.first_name %></p>
+          <%= image_tag attendee.facebook_picture_url, class: "radius", width:300 %>
+          <div id="dislike">
+            <%= image_tag 'croix.png',width:40 %>
+          </div>
+          <div id="like">
+            <%= image_tag 'heart.png', width:40 %>
+          </div>
+        </div>
+        <div class="attendee-info radius">
+        <% current_user.events.each do |event| %>
+            <% if attendee.events.include?(event) && DateTime.parse(event.end_time) < Time.now %>
+              <p class="attendee-common-events"><%= event.name %></p>
+            <% end %>
+        <% end %>
+        </div>
+
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    like = simple_form_for(attendee, ...) -->
+
+

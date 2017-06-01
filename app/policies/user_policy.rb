@@ -16,4 +16,8 @@ class UserPolicy < ApplicationPolicy
     user == record
   end
 
+  def search?
+    user == record
+  end
+
 end

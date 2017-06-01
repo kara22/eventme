@@ -27,6 +27,10 @@ gem 'cloudinary'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '~> 1.2'
 
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 # gem to handle request to Facebook Graph Api (independent from the facebook-omniauth)
 gem "koala"
 
