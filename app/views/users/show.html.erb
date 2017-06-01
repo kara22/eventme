@@ -1,55 +1,27 @@
-<p>Profil du user avec sa profile pic principale et la description et son event préféré</p>
+<div class="container">
 
-<%= link_to "Editer mes photos", user_eventme_pictures_set_path(current_user) %>
+  <div class="text-center">
 
-<p>Show du user <%= current_user.first_name %> <%= current_user.last_name %></p>
+<div class="picture-item-big">
+    <%= cl_image_tag @user.picture1, height: 150, width: 150, crop: :fill, class: "img-circle", style: "box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)" %>
 
-<%= link_to user_pictures_path(current_user, :picture_field_id => "picture1") do %>
-  <% if current_user.picture1 == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
-    <% else %>
-      <%= cl_image_tag @user.picture1, height: 150, width: 150, crop: :fill %>
-  <% end %>
-<% end %>
+    <%= link_to user_eventme_pictures_set_path(current_user) do %>
+        <span class="add-picture-big">
+          <span class="add-picture-circle-big">
+            <i class="fa fa fa-pencil" style="color: white; font-size: 30px"></i>
+          </span>
+        </span>
+    <% end %>
+    </div>
 
-<%= link_to user_pictures_path(current_user, :picture_field_id => "picture2") do %>
-  <% if current_user.picture2 == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
-    <% else %>
-      <%= cl_image_tag @user.picture2, height: 150, width: 150, crop: :fill %>
-  <% end %>
-<% end %>
+    <hr>
 
-<%= link_to user_pictures_path(current_user, :picture_field_id => "picture3") do %>
-  <% if current_user.picture3 == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
-    <% else %>
-      <%= cl_image_tag @user.picture3, height: 150, width: 150, crop: :fill %>
-  <% end %>
-<% end %>
+    <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
 
-<%= link_to user_pictures_path(current_user, :picture_field_id => "picture4") do %>
-  <% if current_user.picture4 == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
-    <% else %>
-      <%= cl_image_tag @user.picture4, height: 150, width: 150, crop: :fill %>
-  <% end %>
-<% end %>
+    <hr>
 
-<%= link_to user_pictures_path(current_user, :picture_field_id => "picture5") do %>
-  <% if current_user.picture5 == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
-    <% else %>
-      <%= cl_image_tag @user.picture5, height: 150, width: 150, crop: :fill %>
-  <% end %>
-<% end %>
+    <%= link_to "log out", destroy_user_session_path(current_user), method: :delete %>
 
-<%= link_to user_pictures_path(current_user, :picture_field_id => "picture6") do %>
-  <% if current_user.picture6 == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
-    <% else %>
-      <%= cl_image_tag @user.picture6, height: 150, width: 150, crop: :fill %>
-  <% end %>
-<% end %>
+  </div>
 
- <%= link_to "log out", destroy_user_session_path(current_user), method: :delete %>
+</div>
