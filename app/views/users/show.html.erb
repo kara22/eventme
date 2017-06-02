@@ -2,16 +2,16 @@
 
   <div class="text-center">
 
-<div class="picture-item-big">
-    <%= cl_image_tag @user.picture1, height: 150, width: 150, crop: :fill, class: "img-circle", style: "box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)" %>
+    <div class="picture-item-big">
+      <%= cl_image_tag @user.picture1, height: 150, width: 150, crop: :fill, class: "img-circle", style: "box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)" %>
 
-    <%= link_to user_eventme_pictures_set_path(current_user) do %>
-        <span class="add-picture-big">
-          <span class="add-picture-circle-big">
-            <i class="fa fa fa-pencil" style="color: white; font-size: 30px"></i>
-          </span>
+      <%= link_to user_eventme_pictures_set_path(current_user) do %>
+      <span class="add-picture-big">
+        <span class="add-picture-circle-big">
+          <i class="fa fa fa-pencil" style="color: white; font-size: 30px"></i>
         </span>
-    <% end %>
+      </span>
+      <% end %>
     </div>
 
     <hr>
@@ -20,26 +20,15 @@
 
     <hr>
 
-    <%= link_to "log out", destroy_user_session_path(current_user), method: :delete %>
 
   </div>
 
 </div>
 
-<!-- Test -->
-
-  <div id="container">
-    <div class="buddy" style="display: block;"><div class="avatar"  style="display: block; background-image: url(https://1.bp.blogspot.com/_qEbjiFbQWGM/TCBVlN3mkYI/AAAAAAAADCM/7CjYqUHwbgY/s1600/workshop_modell_0126.jpg)"></div></div>
-    <div class="buddy"><div class="avatar" style="display: block; background-image: url(http://static.stylemagazin.hu/medias/29280/Nem-ehezik-a-Women-of-the-Year-legjobb-modell-dijara-eselyes-szepseg_32fc7c86954a8847610499a0fc7261e2.jpg)"></div></div>
-    <div class="buddy"><div class="avatar" style="display: block; background-image: url(http://w1nd.cc/promo/347.jpg)"></div></div>
-<div class="buddy"><div class="avatar" style="display: block; background-image: url(http://ell.h-cdn.co/assets/cm/15/01/54a769be3112d_-_elle-rata-insta-1-24375723.png)"></div></div>
-    <div class="buddy"><div class="avatar" style="display: block; background-image: url(http://hircsarda.hu/wp-content/uploads/2016/03/orban1.jpeg)"></div></div>
-  </div>
-
-<% content_for(:jquerymobile) do %>
- <%= javascript_include_tag 'mobile' %>
-<% end %>
-
-
-
-
+<div class="text-center">
+  <%= link_to "Mes Events", events_path(current_user), class: "btn btn-primary" %>
+</div>
+<hr>
+<div class="text-center">
+  <%= link_to "log out", destroy_user_session_path, method: :delete %>
+</div>
