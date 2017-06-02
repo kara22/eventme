@@ -1,11 +1,14 @@
+
+
   <div class="container">
+
     <% @attendees.each do |attendee|%>
       <% if attendee != current_user %>
       <div class="attendee">
         <div class="attendee-photo">
           <p class="attendee-name"><%= attendee.first_name %></p>
           <%= image_tag attendee.facebook_picture_url, class: "radius", width:300 %>
-          <div id="dislike">
+          <div class="swipe-dislike">
           <%= simple_form_for(@decision, remote: true) do |f| %>
           <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
           <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
@@ -15,7 +18,7 @@
             <button class="btn-fade"><%= image_tag 'croix.png',width:40 , id: "ajax-cross"%></button>
           <% end %>
           </div>
-          <div id="like">
+          <div class="swipe-like">
           <%= simple_form_for(@decision, remote: true) do |f| %>
           <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
           <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
@@ -39,21 +42,13 @@
   </div>
 
 
+<% content_for(:jquerymobile) do %>
+ <%= javascript_include_tag 'mobile' %>
+<% end %>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-<!--    like = simple_form_for(attendee, ...) -->
 
 

@@ -10,6 +10,21 @@
   padding-bottom: 5em;
 }
 
+#liked-all {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index:5000;
+  color:white;
+}
+
+.liked-all-alert{
+  position:relative;
+    z-index:5000;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -38,4 +53,8 @@
 
 .radius {
   border-radius:4px 4px 0px 0px;
+}
+
+.attendee {
+  display:none;
 }
