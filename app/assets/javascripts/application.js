@@ -2,6 +2,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require underscore
-//= require_tree .
+//= require_tree ./app
 
 
