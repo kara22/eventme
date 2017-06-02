@@ -10,7 +10,7 @@
 
 <%= form_tag user_update_picture_path(current_user), method: 'patch' , class: "fb-pics-form" do %>
 
-  <% data.each do |image| %>
+  <% data.first(5).each do |image| %>
 
     <input type="radio" name="fb_radio" id='<%= image["id"] %>' value='<%= image["images"].first["source"] %>' class="fb-pics-radio" />
     <label for="<%= image["id"] %>"><%= image_tag("#{image["images"].first["source"]}", :alt => "profile pic", height: "150", style: "box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)") %></label>
