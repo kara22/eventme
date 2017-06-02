@@ -6,10 +6,24 @@
           <p class="attendee-name"><%= attendee.first_name %></p>
           <%= image_tag attendee.facebook_picture_url, class: "radius", width:300 %>
           <div id="dislike">
-            <%= image_tag 'croix.png',width:40 %>
+          <%= simple_form_for(@decision, remote: true) do |f| %>
+          <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
+          <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
+          <%= f.input :like, input_html: { value: false }, as: :hidden %>
+          <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
+          <%= f.input :pending, input_html: { value: true }, as: :hidden %>
+            <button class="btn-fade"><%= image_tag 'croix.png',width:40 , id: "ajax-cross"%></button>
+          <% end %>
           </div>
           <div id="like">
-            <%= image_tag 'heart.png', width:40 %>
+          <%= simple_form_for(@decision, remote: true) do |f| %>
+          <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
+          <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
+          <%= f.input :like, input_html: { value: true }, as: :hidden %>
+          <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
+          <%= f.input :pending, input_html: { value: true }, as: :hidden %>
+            <button class="btn-fade"><%= image_tag 'heart.png',width:40 , id: "ajax-cross"%></button>
+            <% end %>
           </div>
         </div>
         <div class="attendee-info">
@@ -19,16 +33,10 @@
             <% end %>
         <% end %>
         </div>
-
       </div>
       <% end %>
     <% end %>
   </div>
-
-
-
-
-
 
 
 

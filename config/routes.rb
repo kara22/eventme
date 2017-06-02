@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end
   get "search" => "users#search"
   resources :events, only: [:index]
+  resources :decisions, only: [:create, :update]
   root to: "pages#home"
 end
