@@ -14,7 +14,7 @@ $(document).ready(function(){
       }
       if ( $(this).is(':last-child') ) {
        //$('.attendee:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-        // alert('Vous avez liké tous les profils de cet event');
+        alert('Vous avez liké tous les profils de cet event');
         $('.attendee').hide();
       return;
 
@@ -31,7 +31,7 @@ $(document).ready(function(){
 
     if ( $(this).is(':last-child') ) {
      //$('.attendee:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
-      // alert('Vous avez liké tous les profils de cet event');
+      alert('Vous avez liké tous les profils de cet event');
       $('.attendee').hide();
       return;
      } else {
