@@ -12,6 +12,10 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
+  def receiver?
+    true
+  end
+
   def eventme_pictures_set?
     user == record
   end
@@ -27,7 +31,7 @@ class UserPolicy < ApplicationPolicy
   def search?
     user == record
   end
-  
+
   def update?
     user == record
   end

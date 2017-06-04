@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
       get 'eventme_pictures_set' => 'users#eventme_pictures_set'
       get 'pictures' => 'users#pictures'
+      get 'receiver' => 'users#receiver'
       patch 'update_picture' => 'users#update_picture'
     end
   get "search" => "users#search"
