@@ -47,6 +47,7 @@ class User < ApplicationRecord
     # get all events from facebook
 
    if auth["extra"]["raw_info"]["events"]
+    raise
       auth["extra"]["raw_info"]["events"]["data"].each do |event|
         find_event = Event.find_by(fb_event_id: event.id)
         if event.type == "public"

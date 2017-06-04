@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def receiver
+    @attendee = current_user
+    authorize @attendee
+  end
+
   def eventme_pictures_set
     # On arrive ici depuis la show basique du user
     # Cette méthode conduit à la vue qui présente au user toutes ses photos de profil EventMe

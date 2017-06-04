@@ -3,7 +3,7 @@
       <% if attendee != current_user %>
       <div class="attendee">
         <div class="attendee-photo">
-          <p class="attendee-name"><%= attendee.first_name %></p>
+          <p class="attendee-name text-center"><%= attendee.first_name %></p>
           <%= image_tag attendee.facebook_picture_url, class: "radius", width:300 %>
           <div id="dislike">
             <%= image_tag 'croix.png',width:40 %>
