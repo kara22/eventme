@@ -65,12 +65,14 @@ ActiveRecord::Schema.define(version: 20170605133542) do
 
   create_table "messages", force: :cascade do |t|
     t.integer  "match_id"
-    t.integer  "user_id"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["match_id"], name: "index_messages_on_match_id", using: :btree
-    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+    t.index ["recipient_id"], name: "index_messages_on_recipient_id", using: :btree
+    t.index ["sender_id"], name: "index_messages_on_sender_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -112,5 +114,4 @@ ActiveRecord::Schema.define(version: 20170605133542) do
   add_foreign_key "decisions", "events"
   add_foreign_key "matches", "events"
   add_foreign_key "messages", "matches"
-  add_foreign_key "messages", "users"
 end
