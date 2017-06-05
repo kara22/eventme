@@ -4,4 +4,8 @@ class MatchPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def show?
+    user == record
+  end
 end

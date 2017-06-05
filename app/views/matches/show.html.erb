@@ -1,0 +1,13 @@
+<div class="container">
+  <% if current_user == @match.user_1 %>
+  <div class="conversations text-center">
+    <%= image_tag @match.user_2.facebook_picture_url, class: "avatar-large" %>
+    <p><%= @match.user_2.first_name %></p>
+    <p>#<%= @match.event.name %></p>
+  </div>
+  <% else %>
+  <div class="conversations text-center">
+    <%= image_tag @match.user_1.facebook_picture_url, class: "avatar-large" %>
+  </div>
+  <% end %>
+</div>
