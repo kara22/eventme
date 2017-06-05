@@ -10,9 +10,9 @@ $(document).ready(function(){
     $(this).find(".white-wrapper").toggleClass("hidden");
     var data_events = JSON.stringify(events);
     if (data_events.length > 10) {
-      $(".btn-red-rounded").removeClass("hidden");
+      $("#meet-button").removeClass("hidden");
     } else {
-      $(".btn-red-rounded").addClass("hidden");
+      $("#meet-button").addClass("hidden");
     }
     $("#search-events").val(data_events);
   });
