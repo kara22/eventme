@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get "search" => "users#search"
   resources :events, only: [:index]
   resources :decisions, only: [:create, :update]
+  resources :matches, only: [:index, :update]
+
   root to: "pages#home"
 end
