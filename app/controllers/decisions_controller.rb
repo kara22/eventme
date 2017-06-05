@@ -15,7 +15,7 @@ class DecisionsController < ApplicationController
         @decision.update(pending: false)
         reciproc_decision.update(pending: false)
         if @decision.like && reciproc_decision.like
-          @match = Match.create(user_1: @decision.decision_maker, user_2: @decision.decision_receiver)
+          @match = Match.create(user_1: @decision.decision_maker, user_2: @decision.decision_receiver, event_id: @decision.event_id)
         end
       end
       respond_to do |format|
