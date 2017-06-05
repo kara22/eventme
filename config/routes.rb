@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
       get 'eventme_pictures_set' => 'users#eventme_pictures_set'
       get 'pictures' => 'users#pictures'
-  # Ici on utilise deux méthodes patchs pour modifier la photo de profil et la description du l'utilisateur avec des requêtes ajax
+      get 'receiver' => 'users#receiver'
       patch 'update_picture' => 'users#update_picture'
       patch 'update_description' => 'users#update_description'
     end
