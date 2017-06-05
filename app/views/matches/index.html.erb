@@ -1,0 +1,14 @@
+<div class="container">
+  <% @matches.each do |match| %>
+  <div class="match">
+    <% if current_user == match.user_1 %>
+      <%= image_tag match.user_2.facebook_picture_url, class: "avatar-large" %>
+      <p class="text-center match-user-name"><%= match.user_2.first_name %></p><br>
+      <p class="text-center match-user-event"><%= match.event.name %></p>
+    <% else %>
+      <%= image_tag match.user_1.facebook_picture_url, class: "avatar-large" %>
+      <p><%= match.user_1.first_name %></p>
+    <% end %>
+  </div>
+ <% end %>
+</div>

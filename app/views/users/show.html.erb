@@ -1,10 +1,12 @@
+<!-- Partial pour le titre de la page  -->
+<% content_for(:title_tag) do %>
+  Votre profil EventMe - touchez pour modifier
+<% end %>
+
 <div class="container">
-
   <div class="text-center">
-
     <div class="picture-item-big">
       <%= cl_image_tag @user.picture1, height: 150, width: 150, crop: :fill, class: "img-circle", style: "box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)" %>
-
       <%= link_to user_eventme_pictures_set_path(current_user) do %>
       <span class="add-picture-big">
         <span class="add-picture-circle-big">
@@ -13,17 +15,24 @@
       </span>
       <% end %>
     </div>
-
     <hr>
-
-    <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
-
+    <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
     <hr>
+  </div>
+</div>
 
+<div class="container">
+  <div class="text-center">
+    <p><strong>A propos de vous</strong></p>
+
+    <%= form_tag user_update_description_path(current_user), method: 'patch', remote: true, id: "description-form" do %>
+    <% text_area_tag "description", current_user.description, contentEditable: "true", maxlength: "300", style: "border: none; outline:none; resize:none; height: 125px; width:100%" %>
+    <% end %>
 
   </div>
-
 </div>
+
+<hr>
 
 <div class="text-center">
   <%= link_to "Mes Events", events_path(current_user), class: "btn btn-primary" %>
