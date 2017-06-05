@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605083159) do
+ActiveRecord::Schema.define(version: 20170605133542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20170605083159) do
     t.integer  "user_2_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_matches_on_event_id", using: :btree
     t.index ["user_1_id"], name: "index_matches_on_user_1_id", using: :btree
     t.index ["user_2_id"], name: "index_matches_on_user_2_id", using: :btree
   end
@@ -108,6 +110,7 @@ ActiveRecord::Schema.define(version: 20170605083159) do
   add_foreign_key "attendees", "events"
   add_foreign_key "attendees", "users"
   add_foreign_key "decisions", "events"
+  add_foreign_key "matches", "events"
   add_foreign_key "messages", "matches"
   add_foreign_key "messages", "users"
 end

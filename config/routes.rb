@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index]
   resources :decisions, only: [:create, :update]
   resources :matches, only: [:index, :update] do
-    resources :messages only: [:create, :destroy]
+    resources :messages, only: [:create, :destroy]
   end
 
   root to: "pages#home"

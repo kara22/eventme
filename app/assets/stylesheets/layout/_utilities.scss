@@ -29,10 +29,16 @@
   position:relative;
   border-bottom:1px solid #EEEEEE;
   padding:10px;
-  p {
+  .match-user-name {
     position:absolute;
     top:35%;
     left:33%;
+  }
+
+  .match-user-event {
+    position:absolute;
+    top:54%;
+    left:33%
   }
 
 }
