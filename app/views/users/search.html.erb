@@ -1,5 +1,4 @@
 
-
   <div class="container">
 
     <% @attendees.each do |attendee|%>
@@ -34,12 +33,14 @@
             <% if attendee.events.include?(event) && DateTime.parse(event.end_time) < Time.now %>
               <p class="attendee-common-events"><%= event.name %></p>
             <% end %>
+
         <% end %>
         </div>
       </div>
       <% end %>
     <% end %>
   </div>
+
 
 
 <% content_for(:jquerymobile) do %>
