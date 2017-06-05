@@ -143,7 +143,7 @@
   color: white;
   position: absolute;
   top: 5px;
-  font-weight: bold;
+  font-weight: lighter;
 }
 
 .card-bottom-date {
@@ -153,13 +153,30 @@
   position: absolute;
 }
 
-.card-attendee  {
+// .card-attendee  {
+//   position: absolute;
+//   color: white;
+//   right: 5px;
+//   bottom: 1px;
+//   margin-bottom: 0px;
+//   padding-bottom: 0px;
+// }
+
+.attendees {
   position: absolute;
-  color: white;
-  right: 5px;
-  bottom: 1px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+  display: flex;
+  vertical-align: center;
+  bottom: 7px;
+  right: 10px;
+  color:white;
+}
+
+.attendees-count > p {
+  margin-bottom: 0 !important;
+}
+
+.attendees-count {
+  margin-left: 10px;
 }
 
 #name-picture {
@@ -168,4 +185,3 @@
     box-shadow: inset 0px 0 #FF5465;
     box-shadow: inset 0px -24px #FF5465;
 }
-

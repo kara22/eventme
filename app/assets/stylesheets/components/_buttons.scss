@@ -1,16 +1,17 @@
-.btn-red-rounded {
-  border-radius:50%;
-  background-color:#F5515F;
+#meet-button {
+  // border-radius:50%;
+  background-color: #FFF;
   height:70px;
-  width:70px !important;
+  width: 100% !important;
   width:auto;
-  color:white;
-  border-color:#F5515F;
+  color: #F5515F;
   right:15px;
   position:fixed;
-  bottom:10%;
-  right:10%;
-  z-index:10;
+  bottom:0%;
+  right:0%;
+  z-index:5000;
+  border: none;
+  font-size: 2em;
 }
 
 .btn-fade {
