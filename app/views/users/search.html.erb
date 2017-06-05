@@ -3,46 +3,48 @@
   Swipez les participants !
 <% end %>
 
-  <div class="container">
-
-    <% @attendees.each do |attendee|%>
-      <% if attendee != current_user %>
-      <div class="attendee">
-        <div class="attendee-photo">
-          <p class="attendee-name text-center"><%= attendee.first_name %></p>
-          <%= image_tag attendee.facebook_picture_url, class: "radius", width:300 %>
-          <div class="swipe-dislike">
-          <%= simple_form_for(@decision, remote: true) do |f| %>
-          <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
-          <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
-          <%= f.input :like, input_html: { value: false }, as: :hidden %>
-          <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
-          <%= f.input :pending, input_html: { value: true }, as: :hidden %>
-            <button class="btn-fade"><%= image_tag 'croix.png',width:40 , id: "ajax-cross"%></button>
-          <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12" >
+      <% @attendees.each do |attendee|%>
+        <% if attendee != current_user %>
+          <div class="attendee" >
+            <div class="attendee-photo" style="background-image: url('<%= image_path attendee.picture1 %>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+              <p class="attendee-name text-center"><em id="name-picture"><%= attendee.first_name %>, 25</em></p>
+            </div>
+            <div class="swipe-dislike">
+              <%= simple_form_for(@decision, remote: true) do |f| %>
+                <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
+                <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
+                <%= f.input :like, input_html: { value: false }, as: :hidden %>
+                <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
+                <%= f.input :pending, input_html: { value: true }, as: :hidden %>
+              <% end %>
+            </div>
+            <div class="swipe-like">
+              <%= simple_form_for(@decision, remote: true) do |f| %>
+                <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
+                <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
+                <%= f.input :like, input_html: { value: true }, as: :hidden %>
+                <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
+                <%= f.input :pending, input_html: { value: true }, as: :hidden %>
+              <% end %>
+            </div>
+            <div class="attendee-info">
+                <% current_user.events.each do |event| %>
+                  <% if attendee.events.include?(event) && DateTime.parse(event.end_time) < Time.now %>
+                    <div class="text-center"> <span id="event-name"> <i class="fa fa-calendar"></i> <%= event.name %></span> </div>
+                    <div class="text-center"> <em> 1 évènement passé en commun </em></div>
+                  <% end %>
+                <% end %>
+            </div>
           </div>
-          <div class="swipe-like">
-          <%= simple_form_for(@decision, remote: true) do |f| %>
-          <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
-          <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
-          <%= f.input :like, input_html: { value: true }, as: :hidden %>
-          <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
-          <%= f.input :pending, input_html: { value: true }, as: :hidden %>
-            <button class="btn-fade"><%= image_tag 'heart.png',width:40 , id: "ajax-cross"%></button>
-            <% end %>
-          </div>
-        </div>
-        <div class="attendee-info">
-        <% current_user.events.each do |event| %>
-            <% if attendee.events.include?(event) && DateTime.parse(event.end_time) < Time.now %>
-              <p class="attendee-common-events"><%= event.name %></p>
-            <% end %>
         <% end %>
-        </div>
-      </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
+</div>
+
 
 
 <% content_for(:jquerymobile) do %>
