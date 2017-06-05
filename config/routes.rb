@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'pictures' => 'users#pictures'
       get 'receiver' => 'users#receiver'
       patch 'update_picture' => 'users#update_picture'
+      patch 'update_description' => 'users#update_description'
     end
   get "search" => "users#search"
   resources :events, only: [:index]

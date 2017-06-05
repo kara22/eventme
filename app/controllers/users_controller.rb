@@ -41,9 +41,20 @@ class UsersController < ApplicationController
   end
 
 
-  def search
-    @decision = Decision.new
-    @user = current_user
+  def update_description
+  # on passe d'abord le user courant à la méthode authorise
+  @user = User.find(params[:user_id])
+  authorize @user
+  @description = params[:description]
+  @user.description = @description
+  @user.save
+  # on récupère la description du user qui doit être dans les params
+end
+
+
+def search
+  @decision = Decision.new
+  @user = current_user
     # on parse les params passés dans l'input caché de l'index events en objet ruby
     @response = JSON.parse(params["search-user-events"])
 
