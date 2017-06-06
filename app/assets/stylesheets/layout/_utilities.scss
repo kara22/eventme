@@ -41,6 +41,10 @@
     left:33%
   }
 
+  p {
+    color:#c33149 !important;
+  }
+
 }
 
 // Backgrounds
@@ -75,5 +79,10 @@
 
 .attendee {
   display:none;
+}
+
+#display-messages {
+  height:50vh;
+  background-color:red;
 }
 
