@@ -44,6 +44,10 @@
   z-index: 0;
 }
 
+
+.event-name i {
+  padding-right: 1vh;
+}
 #name-picture {
   -webkit-animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
   animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
@@ -78,8 +82,8 @@
 }
 
 .event-name {
-  font-size: 1.3em;
-  font-weight: bold;
+  padding-left: 0.5vh;
+  font-size: 1.2em;
   color:white;
 }
 
