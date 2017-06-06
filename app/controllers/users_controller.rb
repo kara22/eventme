@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def receiver
     @attendee = current_user
     authorize @attendee
+    #il faut le user_receiver
   end
 
   def eventme_pictures_set
