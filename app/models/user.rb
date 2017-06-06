@@ -18,7 +18,8 @@ class User < ApplicationRecord
   has_many :decisions_as_receiver, class_name: 'Decision', foreign_key: 'decision_receiver_id'
   has_many :matches_as_user_1, class_name: 'Match', foreign_key: 'user_1_id'
   has_many :matches_as_user_2, class_name: 'Match', foreign_key: 'user_2_id'
-  has_many :messages
+  has_many :messages_as_sender, class_name: 'Message', foreign_key: 'sender_id'
+  has_many :messages_as_recipient, class_name: 'Message', foreign_key: 'recipient_id'
   has_many :events, through: :attendees do
     def going
       where("attendees.rsvp_status = ?", 'attending')

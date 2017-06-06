@@ -15,10 +15,12 @@
               <div class="card-bottom-title"><%= event.name %></div>
               <div class="card-bottom-date">D - <%= (DateTime.parse(event.start_time) - Date.today).to_i %></div>
               <div class="card-attendee">
-                 <ul class="list-inline">
-                  <li><%= image_tag 'participants.png' %></li>
-                  <li><%= event.attending_count %></li>
-                </ul>
+
+
+                 <div class="attendees">
+                  <div class="attendees-logo"><i class="fa fa-users" aria-hidden="true"></i></div>
+                  <div class="attendees-count"><p><%= event.attending_count %></p></div>
+                </div>
               </div>
             </div>
         </div>
@@ -30,6 +32,6 @@
 
 <%= form_tag search_path, method: 'get' , class: "fb-pics-form" do %>
   <input type="hidden" name="search-user-events" id="search-events">
-  <%= submit_tag "Meet",  class: "btn-red-rounded hidden"%>
+  <%= submit_tag "Meet",  id: "meet-button", class: "hidden", style: "border: none"%>
 <% end %>
 

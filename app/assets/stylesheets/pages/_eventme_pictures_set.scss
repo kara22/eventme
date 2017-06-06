@@ -8,22 +8,16 @@
 //   margin: 10px;
 // }
 
-.picture-row {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.picture-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
 .picture-item {
   position: relative;
+  margin: 10px;
+  width: 30%;
+  img {
+    width: 100%;
+  }
 }
+
 
 .add-picture-circle {
   width: 100%;
