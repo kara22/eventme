@@ -10,12 +10,15 @@
     <%= image_tag @match.user_1.facebook_picture_url, class: "avatar-large" %>
   </div>
   <% end %>
-  <%  %>
 </div>
-
+<div class="display-messages">
+  <% @messages.each do |message| %>
+    <%= message.content %></p>
+  <% end %>
+</div>
 <div id="chat-input">
-  <%= simple_form_for [@match, @message] , html: {class: 'form-inline'}, remote: true do |f| %>
-      <%= f.input :content, placeholder: "Votre message", width:50 %>
-      <%= f.submit 'Envoyer', class: 'btn btn-primary'%>
+  <%= simple_form_for [@match, @message] , html: {class: 'form-inline'}, remote: true , id: 'form-message' do |f| %>
+      <%= f.input :content, placeholder: "Votre message", width:50%>
+      <%= f.submit 'Envoyer', class: 'btn btn-primary', id: 'bnt-message' %>
   <% end %>
 </div>

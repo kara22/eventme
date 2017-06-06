@@ -7,7 +7,9 @@ class MatchesController < ApplicationController
     authorize current_user
     @match = Match.find(params[:id])
     @message = Message.new
+    @messages = @match.messages.where("sender_id = ? OR recipient_id = ?", current_user.id, current_user.id)
   end
+
 
   def destroy
     @match = Match.find(params[:id])

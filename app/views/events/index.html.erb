@@ -6,14 +6,14 @@
 <div class="container">
   <div class="row">
     <% current_user.events.going.each do |event| %>
-      <% if DateTime.parse(event.start_time) > Time.now %>
+      <% if event.start_time > Time.now %>
         <div class="col-xs-12">
           <div class="card" id="<%= event.id %>" style="background-image: linear-gradient(to right,rgba(222, 98, 98, 0.4), rgba(255, 184, 140, 0.4)), url('<%= image_path event.cover %>');">
           <div class="white-wrapper hidden"></div>
           </div>
             <div class="card-bottom">
               <div class="card-bottom-title"><%= event.name %></div>
-              <div class="card-bottom-date">D - <%= (DateTime.parse(event.start_time) - Date.today).to_i %></div>
+              <div class="card-bottom-date">D - <%= number_of_days(event) %></div>
               <div class="card-attendee">
 
 
