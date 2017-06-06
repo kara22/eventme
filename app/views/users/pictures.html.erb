@@ -11,6 +11,11 @@
 
 <% user_graph_api = Koala::Facebook::API.new(current_user["token"]) %>
 
+
+<% if user_graph_api.get_object("me?fields=photos{images}")["photos"] == nil %>
+  <p>Il n'y a aucune photo sur votre profil Facebook</p>
+<% else %>
+
 <% data = user_graph_api.get_object("me?fields=photos{images}")["photos"]["data"] %>
 
 <%= form_tag user_update_picture_path(current_user), method: 'patch' , class: "fb-pics-form" do %>
@@ -23,6 +28,8 @@
   <% end %>
 
   <input type="hidden" name="picture_field_to_update" value="<%= params[:picture_field_id] %>">
+
+<% end %>
 
 <% end %>
 
