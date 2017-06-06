@@ -44,8 +44,8 @@ Swipez les participants !
 
 
           <% common_future_events = current_user.common_future_events_with(attendee)  %>
+            <div class="text-center"> <span id="event-name"> <i class="fa fa-calendar"></i> <%= common_future_events.first.name  %></span> </div>
 
-          <div class="text-center" style="font-weight: lighter"> Vous vous verrez à <%= common_future_events.first.name  %> dans <%= number_of_days(common_future_events.first) %> jours </div>
 
 
           <% common_past_events = current_user.common_past_events_with(attendee) %>
@@ -54,9 +54,9 @@ Swipez les participants !
 
             <% case common_past_events.count %>
             <% when 0 %>
-            <p>Vous n'avez pas d'évènements passés en commun</p>
+            <p>Pas d'évènements passés en commun</p>
             <% when 1 %>
-            <p>Vous avez 1 évènement passé en commun</p>
+            <p>1 évènement passé en commun</p>
             <% else %>
             <p><%= common_past_events.count %> évènements passés en commun</p>
             <% end %>
@@ -73,7 +73,6 @@ Swipez les participants !
     </div>
   </div>
 </div>
-
 
 
 <% content_for(:jquerymobile) do %>

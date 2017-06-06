@@ -9,7 +9,7 @@
      <div class="text-center"> <span class="event-receiver-name"> <i class="fa fa-calendar"></i> We Love Green 2017</span> </div> <!-- le nom de l'event dans lequel on est -->
     <% current_user.events.each do |event| %>
       <% if event.end_time %>
-        <% if @attendee.events.include?(event) && DateTime.parse(event.end_time) < Time.now %>
+        <% if @attendee.events.include?(event) && event.end_time < Time.now %>
           <p class="common-event text-center">Vos évènements passés en commun :</p>
           <!-- la liste des events en commun -->
           <div class="text-center"> <span class="event-name"></i> <%= event.name %></span> </div>
