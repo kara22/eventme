@@ -134,12 +134,12 @@ class User < ApplicationRecord
 
   # Méthode utilisée dans la vue search.html.erb qui permet de renvoyer le tableau des events futurs en commun avec "attendee"
   def common_future_events_with(attendee)
-    self.events.where('start_time >= ?', Time.now).order(start_time: :asc) && attendee.events.where('start_time >= ?', Time.now).order(start_time: :asc)
+    self.events.where('start_time >= ?', Time.now).order(start_time: :asc) & attendee.events.where('start_time >= ?', Time.now).order(start_time: :asc)
   end
 
   # Méthode utilisée dans la vue search.html.erb qui permet de renvoyer le tableau des events passés en commun avec "attendee"
  def common_past_events_with(attendee)
-    self.events.where('end_time < ?', Time.now) && attendee.events.where('end_time < ?', Time.now)
+    self.events.where('end_time < ?', Time.now) & attendee.events.where('end_time < ?', Time.now)
   end
 
 
