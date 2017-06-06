@@ -44,12 +44,16 @@
   z-index: 0;
 }
 
+
+.event-name i {
+  padding-right: 1vh;
+}
 #name-picture {
-    -webkit-animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
-    animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
-    box-shadow: inset 0px 0 #c33149;
-    box-shadow: inset 0px -24px #c33149;
-    z-index: 2;
+  -webkit-animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
+  animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
+  box-shadow: inset 0px 0 #c33149;
+  box-shadow: inset 0px -24px #c33149;
+  z-index: 2;
 }
 
 .attendee {
@@ -77,9 +81,10 @@
   background-color: rgba(245, 81, 95, 0.56);
 }
 
-#event-name {
-  font-size: 1.3em;
-  font-weight: bold;
+.event-name {
+  padding-left: 0.5vh;
+  font-size: 1.2em;
+  color:white;
 }
 
 .swipe-dislike {

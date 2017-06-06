@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605133542) do
+ActiveRecord::Schema.define(version: 20170606113045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20170605133542) do
     t.string   "fb_event_id"
     t.string   "name"
     t.integer  "attending_count"
-    t.string   "start_time"
-    t.string   "end_time"
     t.string   "cover"
     t.string   "place_name"
     t.float    "place_latitude"
     t.float    "place_longitude"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
   end
 
   create_table "matches", force: :cascade do |t|
