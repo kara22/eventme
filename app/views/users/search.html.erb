@@ -10,7 +10,9 @@
         <% if attendee != current_user %>
           <div class="attendee" >
             <div class="attendee-photo" style="background-image: url('<%= image_path attendee.picture1 %>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
-              <p class="attendee-name text-center"><em id="name-picture"><%= attendee.first_name %>, 25</em></p>
+              <div class="attendee-name text-center"><em id="name-picture"><%= attendee.first_name %>, 25</em></div>
+              <div class="background-name">
+              </div>
             </div>
             <div class="swipe-dislike">
               <%= simple_form_for(@decision, remote: true) do |f| %>
