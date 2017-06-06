@@ -30,6 +30,26 @@
   bottom: 1vh;
   margin-bottom: 0px;
   font-weight: bold;
+  z-index: 2;
+
+}
+
+.background-name{
+  position: absolute;
+  bottom: 0;
+  height: 11vh;
+  width: 100%;
+  opacity: 1;
+  background-image: linear-gradient(-180deg, rgba(157,155,155,0.0) 0%, #2A2A2A 100%);
+  z-index: 0;
+}
+
+#name-picture {
+    -webkit-animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
+    animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
+    box-shadow: inset 0px 0 #c33149;
+    box-shadow: inset 0px -24px #c33149;
+    z-index: 2;
 }
 
 .attendee {
@@ -160,12 +180,5 @@
   bottom: 1px;
   margin-bottom: 0px;
   padding-bottom: 0px;
-}
-
-#name-picture {
-    -webkit-animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
-    animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
-    box-shadow: inset 0px 0 #FF5465;
-    box-shadow: inset 0px -24px #FF5465;
 }
 
