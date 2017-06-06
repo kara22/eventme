@@ -1,18 +1,41 @@
 .receiver-picture {
   height: 100%;
   width: 100%;
-  margin-top: -10px;
+  margin-top: -1.1vh;
 }
 
 .receiver-name {
-  position: absolute;
-  bottom: 10px;
-  left: 145px;
-  color:white;
-  font-size:20px;
+  font-size: 2em;
   font-weight:bold;
+  color:white;
+  margin-bottom: 1vh;
+}
+
+#name-receiver {
+  -webkit-animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
+  animation: boxShadow 0.3s 1s cubic-bezier(0, 0, 0, 1.25) forwards;
+  box-shadow: inset 0px 0 #c33149;
+  box-shadow: inset 0px -16px #c33149;
+}
+
+
+.receiver-wrapper {
+  min-height: 90vh;
+  background-color:#F5515F;
 }
 
 .card-attende {
-  position: relative;
+}
+
+.common-event {
+font-size: 1.3em;
+color: white;
+margin-top: 1vh;
+}
+
+.event-receiver-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color:white;
+  margin-bottom: 1vh;
 }

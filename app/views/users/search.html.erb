@@ -35,7 +35,7 @@
             <div class="attendee-info">
                 <% current_user.events.each do |event| %>
                   <% if attendee.events.include?(event) && DateTime.parse(event.end_time) < Time.now %>
-                    <div class="text-center"> <span id="event-name"> <i class="fa fa-calendar"></i> <%= event.name %></span> </div>
+                    <div class="text-center"> <span class="event-name"> <i class="fa fa-calendar"></i> <%= event.name %></span> </div>
                     <div class="text-center"> <em> 1 évènement passé en commun </em></div>
                   <% end %>
                 <% end %>
