@@ -12,7 +12,9 @@
               <%= image_tag "logo.png", class: "navbar-logo" %>
             <% end %>
           <div class="navbar-end">
+          <%= link_to matches_path(current_user) do   %>
             <i class="fa fa-comments" aria-hidden="true"></i>
+          <% end %>
           </div>
         </div>
       <% end %>

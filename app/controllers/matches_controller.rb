@@ -6,6 +6,7 @@ class MatchesController < ApplicationController
   def show
     authorize current_user
     @match = Match.find(params[:id])
+    @message = Message.new
   end
 
   def destroy
