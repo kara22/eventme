@@ -1,5 +1,12 @@
 $('.swipe-like form').bind('ajax:success', function() {
   <% if @match %>
-    alert("It's a date !!!");
+    $(".match-confirmed").removeClass("hidden");
+    $(".match-confirmed").append("<h3> It's a Date !</h3>" +
+      "<%= j image_tag @match.user_2.facebook_picture_url, class: 'avatar-large' %>" +
+      "<p>Vous rencontrerez <%= @match.user_2.first_name %> à <%= @match.event.name%></p>"
+    );
+    $(".match-confirmed i").on('click', function(){
+      $(".match-confirmed").addClass("hidden");
+    });
   <% end %>
 });
