@@ -5,7 +5,7 @@ class MessagePolicy < ApplicationPolicy
     end
   end
   def create?
-    user == record
+    user == record.sender
   end
 
   def destroy?
