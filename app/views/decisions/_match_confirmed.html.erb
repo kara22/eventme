@@ -1,0 +1,6 @@
+<div class="match-confirmed">
+<i class="fa fa-times"></i>
+  <h3>It's a date !</h3>
+  <%= image_tag @match.user_2.facebook_picture_url, class: 'avatar-very-large' %>
+  <p>Vous rencontrerez <%= @match.user_2.first_name  %> à <%= @match.event.name %></p>
+</div>

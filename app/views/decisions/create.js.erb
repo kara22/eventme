@@ -1,14 +1,8 @@
-
-$('.swipe-like form').bind('ajax:success', function() {
-  <% if @match != nil %>
-    console.log("<%= @match.user_2.first_name %>");
-    $(".match-confirmed").removeClass("hidden");
-    $(".match-confirmed").append("<h3> It's a Date !</h3>"
-      + "<%= j image_tag @match.user_2.facebook_picture_url, class: 'avatar-very-large' %>"
-      + "<p>Vous rencontrerez <%= @match.user_2.first_name %> à <%= @match.event.name%></p>");
+  <% if @match %>
+    $(".container").append("<%= j render 'match_confirmed' %>");
   <% end %>
-    $(".match-confirmed i").on('click', function(){
-      $(".match-confirmed").addClass("hidden");
+  $(".match-confirmed i").on('click', function(){
+    $(".match-confirmed").remove();
+  });
+  <% @match = nil %>
 
-    });
-});
