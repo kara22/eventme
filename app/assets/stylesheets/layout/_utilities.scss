@@ -90,7 +90,7 @@
 .match-confirmed {
   height:100vh;
   background-color:#393939;
-  position:absolute;
+  position:relative;
   top:0;
   bottom:0;
   left:0;
@@ -98,12 +98,19 @@
   opacity:0.9;
   z-index:3;
 
+  .match-confirmed-content{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:90%;
+  }
+
   i {
     color:white;
     font-size:3em;
     position:absolute;
-    bottom:20%;
-    right:40%;
+    top:5%;
+    right:5%;
     cursor:pointer;
     z-index: 10000;
 
@@ -113,20 +120,31 @@
     color:white;
     position:absolute;
     top:20%;
-    left:30%
+    left:30%;
   }
 
-  img{
+  #avatar-user_1{
     position:absolute;
-    left:38%;
+    left:25%;
     top: 30%;
+  }
+
+  #avatar-user_2 {
+    position:absolute;
+    right:27%;
+    top:30%;
   }
   p {
     color:white;
     font-size:16px;
+    text-align: center !important;
     position:absolute;
-    top:50%;
-    left:5%;
+    bottom:45%;
+  }
+
+  #match-cta{
+    position:absolute;
+    bottom:35%;
   }
 }
 
