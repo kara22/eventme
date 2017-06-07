@@ -23,6 +23,7 @@ $(document).ready(function(){
           $('.attendee').hide();
         }, 1000);
 
+      $(this).find('.swipe-like form').submit();
       return;
 
      } else {
@@ -47,15 +48,12 @@ $(document).ready(function(){
           $('.attendee').hide();
         }, 1000);
 
+        $(this).find('.swipe-like form').submit();
       return;
      } else {
         $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
     }
     $(this).find('.swipe-dislike form').submit();
   });
-
-
-
-
 
 });
