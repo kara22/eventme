@@ -14,13 +14,14 @@
 
 <div class="display-messages">
   <% @messages.each do |message| %>
-
-      <p><%= message.content %></p>
-
   <% if current_user == message.sender %>
-    <p style="background: black"><%= message.content %></p>
+    <div class="messageR">
+      <span class="bubbleR"><%= message.content %></span>
+    </div>
     <% else %>
-        <p style="background: red"><%= message.content %></p>
+    <div class="messageL">
+      <span class="bubbleL"><%= message.content %></span>
+    </div>
     <% end %>
 
   <% end %>
