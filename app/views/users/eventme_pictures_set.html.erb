@@ -3,113 +3,117 @@
 Modifiez vos photos de profil !
 <% end %>
 
-
-<div class="text-center">
-  <h3>Modifiez vos photos</h3>
-</div>
-
 <div class="container">
+
+  <div class="text-center">
+    <h3>Modifiez vos photos</h3>
+  </div>
 
   <div class="picture-item">
     <%= link_to user_pictures_path(current_user, :picture_field_id => "picture1") do %>
     <% if current_user.picture1 == nil %>
-    <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+    <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture", size: "90x90") %>
     <% else %>
     <%= cl_image_tag @user.picture1, crop: :fill %>
     <% end %>
-    <span class="add-picture">
+
       <span class="add-picture-circle">
         <i class="fa fa fa-pencil" style="color: white"></i>
       </span>
-    </span>
     <% end %>
   </div>
 
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="picture-item">
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture2") do %>
+        <% if current_user.picture2 == nil %>
+        <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+        <% else %>
+        <%= cl_image_tag @user.picture2, crop: :fill %>
+        <% end %>
 
-  <div class="picture-item">
-    <%= link_to user_pictures_path(current_user, :picture_field_id => "picture2") do %>
-    <% if current_user.picture2 == nil %>
-    <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
-    <% else %>
-    <%= cl_image_tag @user.picture2, crop: :fill %>
-    <% end %>
-    <span class="add-picture">
-      <span class="add-picture-circle">
-        <i class="fa fa fa-pencil" style="color: white"></i>
-      </span>
-    </span>
-    <% end %>
+          <span class="add-picture-circle">
+            <i class="fa fa fa-pencil" style="color: white"></i>
+          </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="picture-item">
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture3") do %>
+        <% if current_user.picture3 == nil %>
+        <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+        <% else %>
+        <%= cl_image_tag @user.picture3, crop: :fill %>
+        <% end %>
+          <span class="add-picture-circle">
+            <i class="fa fa fa-pencil" style="color: white"></i>
+          </span>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="picture-item">
-    <%= link_to user_pictures_path(current_user, :picture_field_id => "picture3") do %>
-    <% if current_user.picture3 == nil %>
-    <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
-    <% else %>
-    <%= cl_image_tag @user.picture3, crop: :fill %>
-    <% end %>
-    <span class="add-picture">
-      <span class="add-picture-circle">
-        <i class="fa fa fa-pencil" style="color: white"></i>
-      </span>
-    </span>
-    <% end %>
+<div class="row">
+  <div class="col-xs-6">
+    <div class="picture-item">
+      <%= link_to user_pictures_path(current_user, :picture_field_id => "picture4") do %>
+      <% if current_user.picture4 == nil %>
+      <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+      <% else %>
+      <%= cl_image_tag @user.picture4, crop: :fill %>
+      <% end %>
+        <span class="add-picture-circle">
+          <i class="fa fa fa-pencil" style="color: white"></i>
+        </span>
+      <% end %>
+    </div>
   </div>
 
-
-  <div class="picture-item">
-    <%= link_to user_pictures_path(current_user, :picture_field_id => "picture4") do %>
-    <% if current_user.picture4 == nil %>
-    <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
-    <% else %>
-    <%= cl_image_tag @user.picture4, crop: :fill %>
-    <% end %>
-    <span class="add-picture">
-      <span class="add-picture-circle">
-        <i class="fa fa fa-pencil" style="color: white"></i>
-      </span>
-    </span>
-    <% end %>
-  </div>
-
-  <div class="picture-item">
-    <%= link_to user_pictures_path(current_user, :picture_field_id => "picture5") do %>
-    <% if current_user.picture4 == nil %>
-    <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
-    <% else %>
-    <%= cl_image_tag @user.picture5, crop: :fill %>
-    <% end %>
-    <span class="add-picture">
-      <span class="add-picture-circle">
-        <i class="fa fa fa-pencil" style="color: white"></i>
-      </span>
-    </span>
-    <% end %>
-  </div>
-
-  <div class="picture-item">
-    <%= link_to user_pictures_path(current_user, :picture_field_id => "picture6") do %>
-    <% if current_user.picture4 == nil %>
-    <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
-    <% else %>
-    <%= cl_image_tag @user.picture6, crop: :fill %>
-    <% end %>
-    <span class="add-picture">
-      <span class="add-picture-circle">
-        <i class="fa fa fa-pencil" style="color: white"></i>
-      </span>
-    </span>
-    <% end %>
-  </div>
-
+  <div class="col-xs-6">
+    <div class="picture-item">
+      <%= link_to user_pictures_path(current_user, :picture_field_id => "picture5") do %>
+      <% if current_user.picture4 == nil %>
+      <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+      <% else %>
+      <%= cl_image_tag @user.picture5, crop: :fill %>
+      <% end %>
+        <span class="add-picture-circle">
+          <i class="fa fa fa-pencil" style="color: white"></i>
+        </span>
+      <% end %>
+    </div>
+    </div>
 </div>
 
 
-
+<div class="row">
+  <div class="col-xs-6">
+    <div class="col-offset-xs-3">
+      <div class="picture-item">
+        <%= link_to user_pictures_path(current_user, :picture_field_id => "picture6") do %>
+        <% if current_user.picture4 == nil %>
+        <%= image_tag("http://via.placeholder.com/150x150", size: "90x90", alt: "Profile picture") %>
+        <% else %>
+        <%= cl_image_tag @user.picture6, crop: :fill %>
+        <% end %>
+          <span class="add-picture-circle">
+            <i class="fa fa fa-pencil" style="color: white"></i>
+        </span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 <hr>
 
 <div class="text-center" style="margin-top: 20px">
   <p><%= link_to "Retour au profil", user_path(current_user), class: "btn btn-primary" %></p>
 </div>
+
+
+</div>
+
 
 
