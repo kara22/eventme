@@ -18,6 +18,7 @@ $(document).ready(function(){
           console.log('Vous avez liké tous les profils de cet event');
           $('.attendee').hide();
         }, 1000);
+      $(this).find('.swipe-like form').submit();
       return;
 
      } else {
@@ -37,15 +38,12 @@ $(document).ready(function(){
           console.log('Vous avez liké tous les profils de cet event');
           $('.attendee').hide();
         }, 1000);
+        $(this).find('.swipe-like form').submit();
       return;
      } else {
         $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
     }
     $(this).find('.swipe-dislike form').submit();
   });
-
-
-
-
 
 });
