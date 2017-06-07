@@ -13,9 +13,10 @@
 </div>
 <div class="display-messages">
   <% @messages.each do |message| %>
-    <%= message.content %></p>
+      <p><%= message.content %></p>
   <% end %>
 </div>
+
 <div id="chat-input">
   <%= simple_form_for [@match, @message] , html: {class: 'form-inline'}, remote: true , id: 'form-message' do |f| %>
       <%= f.input :content, placeholder: "Votre message", width:50%>
