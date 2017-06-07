@@ -66,13 +66,17 @@ def search
     @events = Event.where(id: ids)
 
     # on recupère les objets users des events donnés (on a toutes les infos du user en faisant attendee.id, attendee.first_name etc)
-    @attendees = @events.map do |event|
+    @attendees_total = @events.map do |event|
       users = event.attendees.map(&:user).flatten
       users.map do |user|
         user.current_event = event
         user
       end
     end.flatten.uniq
+
+    @attendees = @attendees_total.select do |attendee|
+      Decision.where(decision_maker: current_user, decision_receiver: attendee).length == 0
+    end
 
     # pundit
     authorize @user
