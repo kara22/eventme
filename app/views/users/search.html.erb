@@ -36,12 +36,10 @@ Swipez les participants !
         </div>
 
         <div class="attendee-info">
-
-
           <% common_future_events = current_user.common_future_events_with(attendee)  %>
-            <div class="text-center"> <span id="event-name"> <i class="fa fa-calendar"></i> <%= common_future_events.first.name  %></span> </div>
-
-
+          <div class="text-center"> <span id="event-name"> <i class="fa fa-calendar"></i>
+            <%= common_future_events.first.name  %></span>
+          </div>
 
           <% common_past_events = current_user.common_past_events_with(attendee) %>
 

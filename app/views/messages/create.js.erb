@@ -1,5 +1,8 @@
 // $("#display-messages").prepend("<div class='display-messages'>" + "<%= @message.content %>" + "</div>");
 $("#message_content").val('');
-$(".display-messages").append("<%=@message.content%>");
+
+$(".display-messages").append("<p style='background: black'><%= message.content %></p>");
+
+
 
 
