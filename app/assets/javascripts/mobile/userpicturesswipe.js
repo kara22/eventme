@@ -8,19 +8,26 @@ $(document).ready(function(){
 
       $(this).append('<div class="status like">Like!</div>');
       if ( $(this).is(':last-child') ) {
-        $('.attendee:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+        $('.attendee:nth-child(1)').removeClass('rotate-left rotate-right').fadeIn(300);
       } else {
         $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
       }
       if ( $(this).is(':last-child') ) {
        //$('.attendee:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+
         // alert('Vous avez liké tous les profils de cet event');
         $('.attendee').hide();
+
+        setTimeout(function() {
+          console.log('Vous avez liké tous les profils de cet event');
+          $('.attendee').hide();
+        }, 1000);
+
       return;
 
      } else {
         $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
-    }
+     }
       $(this).find('.swipe-like form').submit();
     });
 
@@ -31,8 +38,15 @@ $(document).ready(function(){
 
     if ( $(this).is(':last-child') ) {
      //$('.attendee:nth-child(1)').removeClass ('rotate-left rotate-right').fadeIn(300);
+
       // alert('Vous avez liké tous les profils de cet event');
       $('.attendee').hide();
+
+        setTimeout(function() {
+          console.log('Vous avez liké tous les profils de cet event');
+          $('.attendee').hide();
+        }, 1000);
+
       return;
      } else {
         $(this).next().removeClass('rotate-left rotate-right').fadeIn(400);
