@@ -7,6 +7,9 @@ class DecisionsController < ApplicationController
     # une pop pu devra s'afficher au clic du like et proposer de lancer une conversation
     @decision = Decision.new(decisions_params)
     authorize @decision
+    puts 'entering create controller'
+    @match = nil
+    # puts @match.user_2.first_name
     if @decision.save
       # @decision = decision_maker: current_user, decision_receiver: params
       # check si il ya reciprocité
