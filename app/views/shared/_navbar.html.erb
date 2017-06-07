@@ -1,23 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <% if user_signed_in? %>
-        <div class="navbar-eventme navbar-eventme-fixed text-center">
-          <div class="navbar-start">
-            <%= link_to user_path(current_user) do %>
-              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-            <% end %>
-          </div>
-            <%= link_to events_path(current_user) do %>
-              <%= image_tag "logo.png", class: "navbar-logo" %>
-            <% end %>
-          <div class="navbar-end">
-          <%= link_to matches_path(current_user) do   %>
-            <i class="fa fa-comments" aria-hidden="true"></i>
-          <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<% if user_signed_in? %>
+  <div class="navbar-eventme navbar-eventme-fixed text-center">
+  <div class="navbar-start">
+    <%= link_to user_path(current_user) do %>
+     <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to events_path(current_user) do %>
+    <%= image_tag "logo.png", class: "navbar-logo" %>
+    <% end %>
+  </div>
+  <div class="navbar-end">
+    <%= link_to matches_path(current_user) do   %>
+    <i class="fa fa-comments" aria-hidden="true"></i>
+    <% end %>
   </div>
 </div>
+<% end %>
+
