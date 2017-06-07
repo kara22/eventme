@@ -3,13 +3,24 @@
   <%= link_to match_path(match)  do %>
   <div class="match">
     <% if current_user == match.user_1 %>
-        <%= image_tag match.user_2.facebook_picture_url, class: "avatar-large" %>
-        <p class="text-center match-user-name"><%= match.user_2.first_name %></p>
-        <p class="text-center match-user-event"><%= match.event.name %></p><br><br>
+      <div class="match-box">
+        <div class="match-picture">
+          <%= image_tag match.user_2.facebook_picture_url, class: "avatar-large" %>
+        </div>
+        <div class="match-infos">
+          <p class="text-center match-user-name"><%= match.user_2.first_name %></p>
+          <p class="text-center match-user-event"><%= match.event.name %></p><br><br>
+        </div>
+      </div>
     <% else %>
+      <div class="match-box">
+        <div class="match-picture">
         <%= image_tag match.user_1.facebook_picture_url, class: "avatar-large" %>
+        </div>
+        <div class="match-infos">
         <p class="text-center match-user-name"><%= match.user_1.first_name %></p>
         <p class="text-center match-user-event"><%= match.event.name %></p><br><br>
+        </div>
     <% end %>
   </div>
  <% end %>

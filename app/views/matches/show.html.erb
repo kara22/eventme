@@ -11,9 +11,18 @@
   </div>
   <% end %>
 </div>
+
 <div class="display-messages">
   <% @messages.each do |message| %>
+
       <p><%= message.content %></p>
+
+  <% if current_user == message.sender %>
+    <p style="background: black"><%= message.content %></p>
+    <% else %>
+        <p style="background: red"><%= message.content %></p>
+    <% end %>
+
   <% end %>
 </div>
 

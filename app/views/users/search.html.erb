@@ -4,62 +4,63 @@ Swipez les participants !
 <% end %>
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12" >
 
-      <% @attendees.each do |attendee| %>
-        <% if attendee != current_user %>
-          <div class="attendee" >
+  <% @attendees.each do |attendee| %>
+    <% if attendee != current_user %>
+      <div class="attendee" >
 
-            <div class="attendee-photo" style="background-image: url('<%= image_path attendee.picture1 %>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
-              <div class="attendee-name text-center"><em id="name-picture"><%= attendee.first_name %>, 25</em></div>
-              <div class="background-name">
-              </div>
-            </div>
-
-            <div class="swipe-dislike">
-              <%= simple_form_for(@decision, remote: true) do |f| %>
-              <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
-              <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
-              <%= f.input :like, input_html: { value: false }, as: :hidden %>
-              <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
-              <%= f.input :pending, input_html: { value: true }, as: :hidden %>
-              <% end %>
-            </div>
-
-            <div class="swipe-like">
-              <%= simple_form_for(@decision, remote: true) do |f| %>
-              <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
-              <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
-              <%= f.input :like, input_html: { value: true }, as: :hidden %>
-              <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
-              <%= f.input :pending, input_html: { value: true }, as: :hidden %>
-              <% end %>
-            </div>
-
-            <div class="attendee-info">
-              <% common_future_events = current_user.common_future_events_with(attendee)  %>
-                <div class="text-center"> <span id="event-name"> <i class="fa fa-calendar"></i> <%= common_future_events.first.name  %></span>
-                </div>
-              <% common_past_events = current_user.common_past_events_with(attendee) %>
-
-              <div class="text-center" style="font-weight: lighter">
-
-                <% case common_past_events.count %>
-                <% when 0 %>
-                <p>Pas d'évènements passés en commun</p>
-                <% when 1 %>
-                <p>1 évènement passé en commun</p>
-                <% else %>
-                <p><%= common_past_events.count %> évènements passés en commun</p>
-                <% end %>
-              </div>
-            </div>
+        <div class="attendee-photo" style="background-image: url('<%= image_path attendee.picture1 %>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+          <div class="attendee-name text-center"><em id="name-picture"><%= attendee.first_name %>, 25</em></div>
+          <div class="background-name">
           </div>
-        <% end %>
-      <% end %>
+        </div>
+
+        <div class="swipe-dislike">
+          <%= simple_form_for(@decision, remote: true) do |f| %>
+          <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
+          <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
+          <%= f.input :like, input_html: { value: false }, as: :hidden %>
+          <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
+          <%= f.input :pending, input_html: { value: true }, as: :hidden %>
+          <% end %>
+        </div>
+
+        <div class="swipe-like">
+          <%= simple_form_for(@decision, remote: true) do |f| %>
+          <%= f.input :decision_maker_id, input_html: { value: current_user.id }, as: :hidden %>
+          <%= f.input :decision_receiver_id, input_html: { value: attendee.id }, as: :hidden %>
+          <%= f.input :like, input_html: { value: true }, as: :hidden %>
+          <%= f.input :event_id, input_html: { value: attendee.current_event.id }, as: :hidden %>
+          <%= f.input :pending, input_html: { value: true }, as: :hidden %>
+          <% end %>
+        </div>
+
+        <div class="attendee-info">
+          <% common_future_events = current_user.common_future_events_with(attendee)  %>
+          <div class="text-center"> <span id="event-name"> <i class="fa fa-calendar"></i>
+            <%= common_future_events.first.name  %></span>
+          </div>
+
+          <% common_past_events = current_user.common_past_events_with(attendee) %>
+
+          <div class="text-center" style="font-weight: lighter">
+
+            <% case common_past_events.count %>
+            <% when 0 %>
+            <p>Pas d'évènements passés en commun</p>
+            <% when 1 %>
+            <p>1 évènement passé en commun</p>
+            <% else %>
+            <p><%= common_past_events.count %> évènements passés en commun</p>
+            <% end %>
+
+          </div>
+
+        </div>
+
     </div>
-  </div>
+    <% end %>
+  <% end %>
 </div>
 <div class="load">
   <i class="fa fa-heartbeat fa-3x"></i>
