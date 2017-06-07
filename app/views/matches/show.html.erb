@@ -14,13 +14,18 @@
 
 <div class="display-messages">
   <% @messages.each do |message| %>
+
+      <p><%= message.content %></p>
+
   <% if current_user == message.sender %>
     <p style="background: black"><%= message.content %></p>
     <% else %>
         <p style="background: red"><%= message.content %></p>
     <% end %>
+
   <% end %>
 </div>
+
 <div id="chat-input">
   <%= simple_form_for [@match, @message] , html: {class: 'form-inline'}, remote: true , id: 'form-message' do |f| %>
       <%= f.input :content, placeholder: "Votre message", width:50%>
