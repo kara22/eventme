@@ -20,14 +20,14 @@
     <hr>
   </div>
 
-
+<div style="margin-left: 3vw; margin-right: 3vw">
   <div class="text-center">
     <p><strong>A propos de vous</strong></p>
     <%= form_tag user_update_description_path(current_user), method: 'patch', remote: true, id: "description-form" do %>
     <% text_area_tag "description",  current_user.description, contentEditable: "true", placeholder: "Dites quelque chose sur vous", maxlength: "300", style: "border: none; outline:none; resize:none; height: 8vh; width:100%" %>
     <% end %>
   </div>
-
+</div>
 <hr>
 
   <div class="text-center">

@@ -53,6 +53,12 @@ Swipez les participants !
             <% else %>
             <p><%= common_past_events.count %> évènements passés en commun</p>
             <% end %>
+
+
+             <% common_past_events.each do |e| %>
+                <p><%= e.name %></p>
+             <% end %>
+
           </div>
         </div>
       </div>
