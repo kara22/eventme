@@ -27,9 +27,12 @@
   <% end %>
 </div>
 
-<div id="chat-input">
-  <%= simple_form_for [@match, @message] , html: {class: 'form-inline'}, remote: true , id: 'form-message' do |f| %>
-      <%= f.input :content, placeholder: "Votre message", width:50%>
-      <%= f.submit 'Envoyer', class: 'btn btn-primary', id: 'bnt-message' %>
+  <%= simple_form_for [@match, @message], remote: true , id: 'form-message' do |f| %>
+<!--     <div id="chat-input"> -->
+      <%= f.input :content, placeholder: "Votre message", width:50, as: :string, label: false , wrapper_html: {class: 'form-inline'}  do %>
+        <%= f.input_field :content, as: :string, class: 'form-control', id: 'input-message', placeholder: 'Votre message...'%>
+        <%= f.button :submit, 'Envoyer', class: 'btn btn-primary', id: 'btn-message' %>
+      <% end %>
+<!--     </div> -->
   <% end %>
-</div>
+

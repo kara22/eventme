@@ -1,4 +1,5 @@
 // $("#display-messages").prepend("<div class='display-messages'>" + "<%= @message.content %>" + "</div>");
-  $(".display-messages").append("<%=@message.content%>");
-  $("#message_content").val('');
+  $(".display-messages").append("<div class='messageR'>" + "<span class='bubbleR'>" + "<%= @message.content %>" + "</span>"
+   + "</div>");
+  $("#input-message").val('');
 
