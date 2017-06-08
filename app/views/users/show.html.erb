@@ -5,6 +5,8 @@
 
 <div class="container">
   <div class="text-center">
+
+  <div style="display: flex; align-items: center; justify-content: center;">
     <div class="picture-item-big">
       <%= cl_image_tag @user.picture1, height: 150, width: 150, crop: :fill, class: "img-circle", style: "box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3)" %>
       <%= link_to user_eventme_pictures_set_path(current_user) do %>
@@ -15,6 +17,9 @@
       </span>
       <% end %>
     </div>
+  </div>
+
+
     <hr>
     <h4><%= current_user.first_name %> <%= current_user.last_name %></h4>
     <hr>
