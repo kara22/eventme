@@ -6,7 +6,7 @@ Swipez les participants !
 <div class="container">
 
   <% @attendees.each do |attendee| %>
-    <% if attendee != current_user %>
+    <% if attendee != current_user && attendee.gender != current_user.gender %>
       <div class="attendee" >
 
         <div class="attendee-photo" style="background-image: url('<%= image_path attendee.picture1 %>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
@@ -59,6 +59,7 @@ Swipez les participants !
     <% end %>
   <% end %>
   <div class="attendee">
+  <h3 class="text-center" style="font-family: 'Nunito', sans-serif;color:#F5515F; font-weight:lighter;">Pas de profil à swipper pour le moment !</h3>
     <div class="load">
      <i class="fa fa-heartbeat fa-3x"></i>
     </div>
