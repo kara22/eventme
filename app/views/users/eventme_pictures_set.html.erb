@@ -12,7 +12,7 @@ Modifiez vos photos de profil !
   <div class="picture-item">
     <%= link_to user_pictures_path(current_user, :picture_field_id => "picture1") do %>
     <% if current_user.picture1.url == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+      <%= image_tag("placeholder-photo.png", size: "150x150", alt: "Profile picture") %>
     <% else %>
     <%= cl_image_tag @user.picture1, crop: :fill %>
     <% end %>
@@ -28,7 +28,7 @@ Modifiez vos photos de profil !
       <div class="picture-item">
         <%= link_to user_pictures_path(current_user, :picture_field_id => "picture2") do %>
         <% if current_user.picture2.url == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+      <%= image_tag("placeholder-photo.png", size: "150x150", alt: "Profile picture") %>
         <% else %>
         <%= cl_image_tag @user.picture2, crop: :fill %>
         <% end %>
@@ -43,7 +43,7 @@ Modifiez vos photos de profil !
       <div class="picture-item">
         <%= link_to user_pictures_path(current_user, :picture_field_id => "picture3") do %>
         <% if current_user.picture3.url == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+      <%= image_tag("placeholder-photo.png", size: "150x150", alt: "Profile picture") %>
         <% else %>
         <%= cl_image_tag @user.picture3, crop: :fill %>
         <% end %>
@@ -60,7 +60,7 @@ Modifiez vos photos de profil !
     <div class="picture-item">
       <%= link_to user_pictures_path(current_user, :picture_field_id => "picture4") do %>
       <% if current_user.picture4.url == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+      <%= image_tag("placeholder-photo.png", size: "150x150", alt: "Profile picture") %>
       <% else %>
       <%= cl_image_tag @user.picture4, crop: :fill %>
       <% end %>
@@ -75,7 +75,7 @@ Modifiez vos photos de profil !
     <div class="picture-item">
       <%= link_to user_pictures_path(current_user, :picture_field_id => "picture5") do %>
       <% if current_user.picture4.url == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+      <%= image_tag("placeholder-photo.png", size: "150x150", alt: "Profile picture") %>
       <% else %>
       <%= cl_image_tag @user.picture5, crop: :fill %>
       <% end %>
@@ -94,7 +94,7 @@ Modifiez vos photos de profil !
       <div class="picture-item">
         <%= link_to user_pictures_path(current_user, :picture_field_id => "picture6") do %>
         <% if current_user.picture4.url == nil %>
-      <%= image_tag("http://via.placeholder.com/150x150", size: "150x150", alt: "Profile picture") %>
+      <%= image_tag("placeholder-photo.png", size: "150x150", alt: "Profile picture") %>
         <% else %>
         <%= cl_image_tag @user.picture6, crop: :fill %>
         <% end %>
