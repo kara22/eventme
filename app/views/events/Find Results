@@ -1,0 +1,10 @@
+Searching 171 files for "it's a date"
+
+/Users/cmarcoin/code/cmarcoin/eventme/app/views/decisions/_match_confirmed.html.erb:
+    2  <i class="fa fa-times"></i>
+    3    <div class="match-confirmed-content">
+    4:     <h3>It's a date!</h3>
+    5      <ul class="list-inline">
+    6        <li>
+
+1 match in 1 file

@@ -4,7 +4,7 @@
 <% end %>
 
 <div class="container">
-  <h3 class="text-center" style="font-family: 'Nunito', sans-serif;color:#F5515F; font-weight:lighter;">Séléctionnez vos events !</h3>
+  <h3 class="text-center" style="font-family: 'Nunito', sans-serif;color:#F5515F; font-weight:lighter;">Sélectionnez vos events !</h3>
   <div class="row">
     <% current_user.events.going.order(start_time: :asc).each do |event| %>
       <% if event.start_time > Time.now %>
