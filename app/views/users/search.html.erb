@@ -10,7 +10,7 @@ Swipez les participants !
       <div class="attendee" >
 
         <div class="attendee-photo" style="background-image: url('<%= image_path attendee.picture1 %>'); background-repeat: no-repeat; background-size: cover; background-position: center;">
-          <div class="attendee-name text-center"><em id="name-picture"><%= attendee.first_name %>, 25</em></div>
+          <div class="attendee-name text-center"><em id="name-picture"><%= attendee.first_name %>, <%= rand(20..26) %></em></div>
           <div class="background-name">
           </div>
         </div>
