@@ -9,7 +9,9 @@
       <% if event.start_time > Time.now %>
         <div class="col-xs-12">
           <div class="card" id="<%= event.id %>" style="background-image: linear-gradient(to right,rgba(222, 98, 98, 0.4), rgba(255, 184, 140, 0.4)), url('<%= image_path event.cover %>');">
-          <div class="white-wrapper hidden"></div>
+          <div class="black-wrapper hidden">
+            <%= image_tag 'checkbox.png' %>
+          </div>
           </div>
             <div class="card-bottom">
               <div class="card-bottom-title"><%= event.name %></div>
