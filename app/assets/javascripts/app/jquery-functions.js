@@ -7,7 +7,7 @@ $(document).ready(function(){
     } else {
       events.ids.push(id);
     }
-    $(this).find(".white-wrapper").toggleClass("hidden");
+    $(this).find(".black-wrapper").toggleClass("hidden");
     var data_events = JSON.stringify(events);
     if (data_events.length > 10) {
       $("#meet-button").removeClass("hidden");
