@@ -136,3 +136,18 @@
   }
 }
 
+.inline{
+  display:inline-block;
+}
+
+#chat-input {
+   position:fixed;
+   bottom:0;
+}
+
+#input-message {
+  width:76% !important;
+  display:inline-block !important;
+  bottom:0;
+  position:fixed;
+}
