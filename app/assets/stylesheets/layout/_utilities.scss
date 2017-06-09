@@ -82,10 +82,14 @@
 
   .match-confirmed-content{
     display:flex;
-    justify-content:center;
+    justify-content:space-around;
+    flex-direction: column;
     align-items:center;
     height:90%;
+    text-align: center;
+
   }
+
 
   i {
     color:white;
@@ -100,34 +104,38 @@
 
   h3 {
     color:white;
-    position:absolute;
-    top:20%;
-    left:30%;
+    // position:absolute;
+    // top:20%;
+    // left:30%;
   }
 
-  #avatar-user_1{
-    position:absolute;
-    left:25%;
-    top: 30%;
+  #avatar-user_1, #avatar-user_2 {
+    margin: 0 -15px;
   }
 
-  #avatar-user_2 {
-    position:absolute;
-    right:27%;
-    top:30%;
-  }
+  // #avatar-user_1{
+  //   position:absolute;
+  //   left:25%;
+  //   top: 30%;
+  // }
+
+  // #avatar-user_2 {
+  //   position:absolute;
+  //   right:27%;
+  //   top:30%;
+  // }
   p {
     color:white;
     font-size:16px;
     text-align: center !important;
-    position:absolute;
-    bottom:45%;
+    // position:absolute;
+    // bottom:45%;
   }
 
-  #match-cta{
-    position:absolute;
-    bottom:35%;
-  }
+  // #match-cta{
+  //   position:absolute;
+  //   bottom:35%;
+  // }
 }
 
 .inline{
