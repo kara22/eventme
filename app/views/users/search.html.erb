@@ -55,7 +55,7 @@ Swipez les participants !
             <% end %>
 
 
-             <% common_past_events.each do |e| %>
+             <% common_past_events.order(start_time: :desc).each do |e| %>
                 <p><%= e.name %></p>
              <% end %>
 
