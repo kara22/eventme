@@ -1,17 +1,20 @@
 <div class="match-confirmed">
 <i class="fa fa-times"></i>
   <div class="match-confirmed-content">
-    <h3>It's a date !</h3>
-    <ul class="list-inline">
-      <li>
-      <%= image_tag @match.user_2.facebook_picture_url, class: 'avatar-very-large', id: 'avatar-user_1' %>
+    <div>
+      <h3>It's a date !</h3>
+      <ul class="list-inline">
+        <li>
+        <%= image_tag @match.user_2.facebook_picture_url, class: 'avatar-very-large', id: 'avatar-user_1' %>
 
-      </li>
-      <li>
-      <%= image_tag @match.user_1.facebook_picture_url, class: 'avatar-very-large', id: 'avatar-user_2' %>
-      </li>
-    </ul>
-    <p class="text-center"><%= @match.user_2.first_name  %> sera à <%= @match.event.name %></p>
+        </li>
+        <li>
+        <%= image_tag @match.user_1.facebook_picture_url, class: 'avatar-very-large', id: 'avatar-user_2' %>
+        </li>
+      </ul>
+      <p class="text-center"><%= @match.user_2.first_name  %> sera à <%= @match.event.name %></p>
+    </div>
+
     <%= link_to "On s'organise", match_path(@match), class: 'btn btn-primary', id: 'match-cta' %>
   </div>
 </div>
