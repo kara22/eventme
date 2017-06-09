@@ -79,8 +79,9 @@
   right:0;
   opacity:0.9;
   z-index:10;
+  margin-top: 10vh;
 
-  .match-confirmed-content{
+  .match-confirmed-content {
     display:flex;
     justify-content:space-around;
     flex-direction: column;
